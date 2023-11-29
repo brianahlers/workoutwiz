@@ -1,20 +1,24 @@
 import { useState } from 'react'
 import './App.css'
+import Home from './Components/Home'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentPage, setCurrentPage] = useState('Home')
+
+  const renderPage = () => {
+    if (currentPage === 'Home') {
+      return <Home />
+    }
+  };
+
+  const handlePageChange = (page) => setCurrentPage(page)
 
   return (
     <>
-      <h1>WORKOUT WIZ</h1>
-      <h1>UNDER CONSTRUCTION</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-
-      </div>
-
+      <Header currentPage={currentPage} handlePageChange={handlePageChange} />
+      <main>
+        {renderPage()}
+      </main>
     </>
   )
 }
