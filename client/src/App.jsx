@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { React, useState } from 'react'
 import './App.css'
 import Home from './Components/Home'
 
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      <Header currentPage={currentPage} handlePageChange={handlePageChange} />
+      <Home currentPage={currentPage} handlePageChange={handlePageChange} />
       <main>
         {renderPage()}
       </main>
@@ -23,4 +23,6 @@ function App() {
   )
 }
 
-export default App
+
+
+export default App;
