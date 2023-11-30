@@ -3,8 +3,8 @@ const { User, Exercise } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async(req,res)=>{
-  if (req.session.logged_in) {
-    res.redirect('Home');
+  if (req.session.logged_in) { //if user is logged in then redirect to the home page from handlebars
+    res.redirect('/home');
     return;
 }
 res.render('login'); //otherwise render the login page

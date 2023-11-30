@@ -3,10 +3,10 @@ import Nav from './Nav';
 
 const Header = ({ currentPage, handlePageChange }) => {
     return (
-        <div className='Header'>
+        <header>
             <h1>WORKOUT WIZ</h1>
             <Nav currentPage={currentPage} handlePageChange={handlePageChange} />
-        </div>
+        </header>
     );
 };
 
