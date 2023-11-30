@@ -3,6 +3,7 @@ import './App.css'
 import Home from './Components/Home'
 import MyWorkout from './Components/MyWorkouts'
 import NewWorkout from './Components/NewWorkout'
+import Header from './Components/Header'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('Home')
