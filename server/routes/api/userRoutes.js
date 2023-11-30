@@ -100,11 +100,22 @@
 
 // module.exports = router;
 
-const express = require('express');
+
 const router = require('express').Router();
+const {
+  getAllUsers,
+  getUserById,
+  createUser,
+} = require('../../controllers/userController');
 
-const { User } = require('../../models'); //this is exporting the model from the index.js file in the models folder 
+// /api/users
+router.route('/').get(getAllUsers).post(createUser);
 
-//this is where we are putting all our gets and posts and stuff for the user model
+// /api/users/:userId
+router.route('/:userId').get(getUserById);
+
+module.exports = router;
+
+
 
 module.exports = router;

@@ -3,8 +3,8 @@ const { User, Exercise } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async(req,res)=>{
-  if (req.session.logged_in) { //if user is logged in then redirect to the home page from handlebars
-    res.redirect('/home');
+  if (req.session.logged_in) {
+    res.redirect('Home');
     return;
 }
 res.render('login'); //otherwise render the login page
@@ -19,7 +19,7 @@ router.get('/home', withAuth, async(req,res)=>{
     });
     const allExercises = userData.map((exercise) => exercise.get({ plain: true }));//this is returning an array of plain json objects for each exercise
     const exercises = allExercises.filter((exercise) => exercise.user_id === req.session.user_id);//this is filtering the array of exercises to only include the exercises that the user has created
-    res.render('home', { exercises });
+    res.render('Home', { exercises });
   } catch (err) {
     res.status(500).json(err);
     }                       
@@ -27,7 +27,7 @@ router.get('/home', withAuth, async(req,res)=>{
 
   // create route for newWorkout
   router.get('/newWorkout', async(req,res)=>{
-    res.render('newWorkout');
+    res.render('NewWorkout');
   })
 
 module.exports = router;
