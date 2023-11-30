@@ -106,3 +106,5 @@ const router = require('express').Router();
 const { User } = require('../../models'); //this is exporting the model from the index.js file in the models folder 
 
 //this is where we are putting all our gets and posts and stuff for the user model
+
+module.exports = router;
