@@ -1,4 +1,4 @@
-const { Exercise} = require('../models');
+const { Exercise } = require('../models/Exercise'); //added the link here 
 
 module.exports = {
     //Get all exercises
