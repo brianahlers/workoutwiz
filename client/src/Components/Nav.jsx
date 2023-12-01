@@ -25,3 +25,5 @@ const Nav = ({ currentPage, handlePageChange }) => {
         </div>
     );
 };
+
+export default Nav;
