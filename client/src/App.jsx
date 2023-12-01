@@ -2,6 +2,7 @@ import { React, useState } from 'react'
 import './App.css'
 import Home from './Components/Home'
 import Calendar from './Components/Calendar'
+import NewWorkout from './Components/NewWorkout'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('Home')

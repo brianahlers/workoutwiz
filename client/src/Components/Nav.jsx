@@ -28,6 +28,7 @@ const Nav = ({ currentPage, handlePageChange }) => {
                         className={currentPage === 'NewWorkout' ? 'nav-link active' : 'nav-link'}>
                         New Workout
                     </a>
+                </li>
             </nav>
         </div>
     );
