@@ -13,14 +13,21 @@ const Nav = ({ currentPage, handlePageChange }) => {
                         Home
                     </a>
                 </li>
-                {/* <li className='nav-item'>
+                <li className='nav-item'>
                     <a
                         href="#calendar"
                         onClick={() => handlePageChange('Calendar')}
                         className={currentPage === 'About' ? 'nav-link active' : 'nav-link'}>
-                        About
+                        Calendar
                     </a>
-                </li> */}
+                </li>
+                <li className='nav-item'>
+                    <a
+                        href="#newWorkout"
+                        onClick={() => handlePageChange('NewWorkout')}
+                        className={currentPage === 'NewWorkout' ? 'nav-link active' : 'nav-link'}>
+                        New Workout
+                    </a>
             </nav>
         </div>
     );
