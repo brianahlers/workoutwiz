@@ -5,6 +5,7 @@ import Home from './Components/Home'
 import MyWorkouts from './Components/MyWorkouts'
 import NewWorkout from './Components/NewWorkout'
 import Header from './Components/Header'
+import CalendarWorkouts from './Components/CalendarWorkouts'
 
 function App() {
 return (
@@ -14,9 +15,11 @@ return (
       <Route path='/' element={<Home />} />
       <Route path='/myworkouts' element={<MyWorkouts/>} />
       <Route path='/newworkout' element={<NewWorkout />} />
+      <Route path='/calendarworkouts/:date' element={<CalendarWorkouts />} />
     </Routes>
   </Router>
 )
 
 }
+
 export default App;

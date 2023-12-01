@@ -11,6 +11,23 @@ async getAllExercises(req, res) {
     }
 
 },
+
+//get exercise by specific date
+async getExerciseByDate(req, res) {
+    try {
+        const exercise = await Exercise.find({ date: req.params.date })
+            .select('-__v');
+
+        if (!exercise) {
+            return res.status(404).json({ message: 'No exercise with that date' });
+        }
+
+        res.json(exercise);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+
+},
 //Get one exercise by id
 async getExerciseById(req, res) {
     try {

@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {
     getAllExercises,
+    getExerciseByDate,
     getExerciseById,
     createExercise,
     updateExercise,
@@ -17,5 +18,11 @@ router.route('/:exerciseId')
 .get(getExerciseById)
 .put(updateExercise)
 .delete(deleteExercise);
+
+// /api/exercises/date/:date
+router.route('/date/:date')
+.get(getExerciseByDate);
+
+
 
 module.exports = router;
