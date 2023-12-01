@@ -114,8 +114,8 @@ router.route('/')
 .get(getAllUsers)
 .post(createUser);
 
-router.route('/login')
-.post(login);
+// router.route('/login')
+// .post(login);
 
 // /api/users/:userId
 router.route('/:userId')

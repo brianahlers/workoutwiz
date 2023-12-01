@@ -1,16 +1,12 @@
-const { User, Exercise } = require('../models');
+const { User } = require('../models/User');
 
 module.exports = {
     // Get all users
-    async getAllUsers(req, res) {
-        try {
-            const users = await User.find({});
-            res.json(userData);
-        } catch (err) {
-            res.status(500).json(err);
-        }
+    getAllUsers(req, res) {
+        User.findAll()
+        .then((users) => res.json(users))
+        .catch((err) => res.status(400).json(err));
     },
-
     // Get one user
     async getUserById(req, res) {
         try {

@@ -26,6 +26,7 @@ async getExerciseById(req, res) {
         res.status(500).json(err);
     }
 },
+
 //Create an exercise
 async createExercise(req, res) {
     try {

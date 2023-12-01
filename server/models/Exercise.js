@@ -1,4 +1,5 @@
 const {Schema, model} = require('mongoose');
+const User = require('./User');
 
 
 const exerciseSchema = new Schema(
@@ -9,9 +10,9 @@ const exerciseSchema = new Schema(
             trim: true
         },
         date: {
-            type: Date,
-            required: 'You need to provide a date!',
-            trim: true
+            type: Date, 
+            default: Date.now,
+            // required: 'You need to provide a date!',
         },
         sets: {
             type: Number,
@@ -47,6 +48,6 @@ const exerciseSchema = new Schema(
     }
 );
 
-const Exercise = model('Exercise', exerciseSchema);
+const Exercise = model('exercise', exerciseSchema);
 
 module.exports = Exercise;
