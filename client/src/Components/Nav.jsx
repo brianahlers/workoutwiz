@@ -1,33 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
-const Nav = ({ currentPage, handlePageChange }) => {
+const Nav = () => {
     return (
         <div className='Nav'>
             <nav className='nav navbar'>
                 <li className='nav-item'>
-                    <a
-                        href="#home"
-                        onClick={() => handlePageChange('Home')}
-                        className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}>
-                        Home
-                    </a>
+                    <Link to={'/'}>Home</Link>
                 </li>
                 <li className='nav-item'>
-                    <a
-                        href="#calendar"
-                        onClick={() => handlePageChange('Calendar')}
-                        className={currentPage === 'About' ? 'nav-link active' : 'nav-link'}>
-                        Calendar
-                    </a>
+                    <Link to={'/myworkout'}>My Workouts</Link>
                 </li>
                 <li className='nav-item'>
-                    <a
-                        href="#newWorkout"
-                        onClick={() => handlePageChange('NewWorkout')}
-                        className={currentPage === 'NewWorkout' ? 'nav-link active' : 'nav-link'}>
-                        New Workout
-                    </a>
+                    <Link to={'/newworkout'}>New Workout</Link>
                 </li>
             </nav>
         </div>

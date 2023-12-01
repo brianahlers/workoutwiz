@@ -4,8 +4,8 @@ import Nav from './Nav';
 const Header = ({ currentPage, handlePageChange }) => {
     return (
         <header>
-            <h1>WORKOUT WIZ</h1>
-            <Nav currentPage={currentPage} handlePageChange={handlePageChange} />
+            <Nav />
+            <h1>header</h1>
         </header>
     );
 };
