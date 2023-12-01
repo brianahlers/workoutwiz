@@ -106,16 +106,20 @@ const {
   getAllUsers,
   getUserById,
   createUser,
+  deleteUser,
 } = require('../../controllers/userController');
 
 // /api/users
-router.route('/').get(getAllUsers).post(createUser);
+router.route('/')
+.get(getAllUsers)
+.post(createUser);
+
+router.route('/login')
+.post(login);
 
 // /api/users/:userId
-router.route('/:userId').get(getUserById);
-
-module.exports = router;
-
-
+router.route('/:userId')
+.get(getUserById)
+.delete(deleteUser);
 
 module.exports = router;
