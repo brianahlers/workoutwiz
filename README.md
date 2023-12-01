@@ -41,4 +41,4 @@ This project is licensed under the [MIT License](LICENSE).
 ## Contact
 
 Provide your contact information and any additional details for users to reach out to you.
-Seth helps us alot
+Seth helps us so much
