@@ -1,10 +1,13 @@
 import React from 'react';
+import Calendar from 'react-calendar';
+
 
 const Home = () => {
     return (
         <div className="home">
-            <h1>home</h1>
-            <h1>UNDER CONSTRUCTION</h1>
+            <h1>Home</h1>
+            <Calendar />
+
         </div>
     );
 };

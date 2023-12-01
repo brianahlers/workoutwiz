@@ -1,11 +1,11 @@
 import React from 'react';
 import Nav from './Nav';
 
-const Header = ({ currentPage, handlePageChange }) => {
+const Header = () => {
     return (
         <header>
             <Nav />
-            <h1>header</h1>
+            <p>this might only hold the nav, not sure yet</p>
         </header>
     );
 };
