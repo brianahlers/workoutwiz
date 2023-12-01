@@ -1,7 +1,7 @@
 import { React, useState } from 'react'
 import './App.css'
 import Home from './Components/Home'
-import Calendar from './Components/Calendar'
+import MyWorkout from './Components/MyWorkouts'
 import NewWorkout from './Components/NewWorkout'
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       return <Home />
     }
     if (currentPage === 'Calendar') {
-      return <Calendar />
+      return <MyWorkout />
     }
     if (currentPage === 'NewWorkout') {
       return <NewWorkout />

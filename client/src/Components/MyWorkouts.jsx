@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Calendar = () => {
+const MyWorkouts = () => {
     return (
         <>
-            <h1>Calendar</h1>
+            <h1>MyWorkouts</h1>
             <button>Click Me</button>
         </>
     );
 };
 
-export default Calendar;
+export default MyWorkouts;

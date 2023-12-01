@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async(req,res)=>{
   if (req.session.logged_in) { //if user is logged in then redirect to the home page from handlebars
-    res.redirect('/home');
+    res.redirect('Home');
     return;
 }
 res.render('login'); //otherwise render the login page
