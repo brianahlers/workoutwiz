@@ -1,5 +1,50 @@
 import React from 'react';
 
+const exerciseList = [
+    'Barbell Squat',
+    'Barbell Bench Press',
+    'Barbell Deadlift',
+    'Barbell Row',
+    'Barbell Overhead Press',
+    'Dumbbell Squat',
+    'Dumbbell Bench Press',
+    'Dumbbell Deadlift',
+    'Dumbbell Row',
+    'Dumbbell Overhead Press',
+    'Pull Ups', 'Push Ups',
+    'Sit Ups',
+    'Plank',
+    'Crunches',
+    'Lunges',
+    'Jumping Jacks',
+    'Burpees',
+    'Mountain Climbers',
+    'Leg Raises',
+    'Squats',
+    'Calf Raises',
+    'Bicep Curls',
+    'Tricep Extensions',
+    'Shoulder Press',
+    'Lateral Raises',
+    'Front Raises',
+    'Skull Crushers',
+    'Hammer Curls',
+    'Dumbbell Flys',
+    'Dumbbell Pullovers',
+    'Dumbbell Kickbacks',
+    'Dumbbell Shrugs',
+    'Dumbbell Lateral Raises',
+    'Dumbbell Front Raises',
+    'Dumbbell Skull Crushers',
+    'Dumbbell Hammer Curls',
+    'Dumbbell Flys',
+    'Dumbbell Pullovers',
+    'Dumbbell Kickbacks',
+    'Dumbbell Shrugs',
+    'Dumbbell Lateral Raises',
+    'Dumbbell Front Raises',
+    'Dumbbell Skull Crushers',
+    'Dumbbell Hammer Curls'
+]
 
-
-export default ExerciseList;
+export default exerciseList;
