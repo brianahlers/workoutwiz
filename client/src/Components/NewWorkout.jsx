@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { addExercise } from '../Utils/API';
 import exerciseList from './ExerciseList';
-import '../Styles/NewWorkout.css';
+
 
 const NewWorkout = () => {
   const [selectedExercise, setSelectedExercise] = useState('');

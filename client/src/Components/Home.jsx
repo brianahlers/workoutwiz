@@ -1,7 +1,7 @@
 import React, { useState }  from 'react';
 import Calendar from 'react-calendar';
 import { useNavigate } from "react-router-dom";
-import '../Styles/Home.css';
+
 
 const Home = () => {
     const navigate = useNavigate();
