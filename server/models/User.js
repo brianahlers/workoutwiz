@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const bcrypt = require('bcrypt');
 
 
 const userSchema = new Schema({
@@ -34,9 +35,26 @@ const userSchema = new Schema({
   }
 );
 
+//static method to handle signup
+userSchema.statics.signup = async (email, password) => {
+    
+    const exists = await this.findOne({ email })
+
+    if (exists) {
+        throw Error('Email already in use!')
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(password, salt);
+
+    const user = await this.create({ email, password: hash });
+
+    return user;
+};
+
 const User = model('User', userSchema);
 
-module.exports = User; //fixed this typo it said "model.exports"
+module.exports = User; 
 
 
 ///the result of doing the "ref: exercise" is that the user model will have an array of exercise ids.
