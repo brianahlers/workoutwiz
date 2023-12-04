@@ -92,7 +92,6 @@ const NewWorkout = () => {
         onChange={handleWeightChange}
       />
       <button onClick={handleAddExercise}>Add Exercise</button>
-      <Button></Button>
     </>
   );
 };

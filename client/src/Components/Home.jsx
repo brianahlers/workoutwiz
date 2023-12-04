@@ -18,6 +18,8 @@ const Home = () => {
     return (
         <div className="home">
             <h1>Home</h1>
+            <h2>Welcome, User!</h2>
+            <p>Click on a date to see what you tracked that day!</p>
             <Calendar onChange={setValue} value={value} onClickDay={handleDateChange} />
 
         </div>
