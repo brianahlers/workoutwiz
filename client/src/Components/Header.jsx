@@ -5,7 +5,6 @@ const Header = () => {
     return (
         <header>
             <Nav />
-            <p>this might only hold the nav, not sure yet</p>
         </header>
     );
 };

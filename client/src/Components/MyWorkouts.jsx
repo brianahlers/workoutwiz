@@ -4,7 +4,7 @@ const MyWorkouts = () => {
     return (
         <>
             <h1>MyWorkouts</h1>
-            <button>Click Me</button>
+            <Button>click me</Button>
         </>
     );
 };
