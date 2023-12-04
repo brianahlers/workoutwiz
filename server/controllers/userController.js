@@ -1,4 +1,5 @@
 const { User } = require('../models');
+const { signToken } = require('../utils/auth');
 
 module.exports = {
     // Get all users
@@ -31,15 +32,15 @@ module.exports = {
     },
 
     // Create a user
-    async createUser(req, res) { console.log (req.body)
-        try {
-            const user = await User.create(req.body);
-            res.json(user);
-        } catch (err) { 
-            console.log(err)
-            res.status(500).json(err);
-        }
-    },
+    // async createUser(req, res) { console.log (req.body)
+    //     try {
+    //         const user = await User.create(req.body);
+    //         res.json(user);
+    //     } catch (err) { 
+    //         console.log(err)
+    //         res.status(500).json(err);
+    //     }
+    // },
 
     // Delete a user
     async deleteUser(req, res) {
@@ -53,15 +54,15 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-     // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
-//   async createUser({ body }, res) {
-//     const user = await User.create(body);
-//     if (!user) {
-//       return res.status(400).json({ message: 'Something is wrong!' });
-//     }
-//     const token = signToken(user);
-//     res.json({ token, user });
-//   },
+    // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
+  async createUser({ body }, res) {
+    const user = await User.create(body);
+    if (!user) {
+      return res.status(400).json({ message: 'Something is wrong!' });
+    }
+    const token = signToken(user);
+    res.json({ token, user });
+  },
   // login a user, sign a token, and send it back (to client/src/components/LoginForm.js)
   // {body} is destructured req.body
   async login({ body }, res) {
@@ -81,16 +82,3 @@ module.exports = {
     
 };
 
-// //sign up user
-
-// const signUp = async (req, res) => {
-//     const { email, password } = req.body
-//     try {
-//         const user = await User.signup(email, password)
-//         res.status(200).json({email, user})
-//     } catch (err) {
-//         res.status(400).json({error: error.message})
-//     }
-
-
-// }

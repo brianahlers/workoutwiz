@@ -5,7 +5,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Perform login logic here
+    // Perform login logic here  (fetch)
     console.log('Logging in...');
   };
 
@@ -25,7 +25,7 @@ const Login = () => {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
-        <button type="button" onClick={handleLogin}>
+        <button type="button" onClick={handleLogin}> 
           Login
         </button>
       </form>
@@ -34,3 +34,6 @@ const Login = () => {
 };
 
 export default Login;
+
+
+//fetch data from server to corresponding endpoint /api/users/login (post) (req.body is username,email and password)
