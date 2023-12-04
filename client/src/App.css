@@ -1,21 +1,53 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
+} */
 
 .logo {
   height: 6em;
-  padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
+  color: white;
+  font-size: 35px;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #e9e9eeaa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #e3eceeaa);
+}
+
+.Nav {
+  display: flex;
+  background-color: #282c34;
+}
+
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 25px;
+  margin-bottom: 2em;
+}
+
+.nav-item {
+
+  margin-right: 2em;
+  flex-wrap: nowrap;
+  margin-bottom: 2em;
+  font-size: 25px;
+}
+
+/* this controls the color of the font in the nav bar */
+.nav-item a {
+  color: #f51818; 
 }
 
 @keyframes logo-spin {
