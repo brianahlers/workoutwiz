@@ -1,19 +1,18 @@
-const { User } = require('../models/User');
+const { User } = require('../models');
 
 module.exports = {
     // Get all users
-    async getAllUsers(req, res) {
+    
+    async getAllUsers(req, res) { console.log('hello')
         try {
             const users = await User.find()
             res.json(users)
         } catch (err) {
             res.status(500).json(err)
         }
+
     },
-    //     User.findAll()
-    //     .then((users) => res.json(users))
-    //     .catch((err) => res.status(400).json(err));
-    // },
+
     // Get one user
     async getUserById(req, res) {
         try {
@@ -32,11 +31,12 @@ module.exports = {
     },
 
     // Create a user
-    async createUser(req, res) {
+    async createUser(req, res) { console.log (req.body)
         try {
             const user = await User.create(req.body);
             res.json(user);
-        } catch (err) {
+        } catch (err) { 
+            console.log(err)
             res.status(500).json(err);
         }
     },
@@ -54,15 +54,14 @@ module.exports = {
         }
     },
      // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
-  async createUser({ body }, res) {
-    const user = await User.create(body);
-
-    if (!user) {
-      return res.status(400).json({ message: 'Something is wrong!' });
-    }
-    const token = signToken(user);
-    res.json({ token, user });
-  },
+//   async createUser({ body }, res) {
+//     const user = await User.create(body);
+//     if (!user) {
+//       return res.status(400).json({ message: 'Something is wrong!' });
+//     }
+//     const token = signToken(user);
+//     res.json({ token, user });
+//   },
   // login a user, sign a token, and send it back (to client/src/components/LoginForm.js)
   // {body} is destructured req.body
   async login({ body }, res) {
