@@ -14,7 +14,10 @@ const Nav = () => {
       <nav className='nav navbar'>
         <ul className='nav-list'>
           <li className='nav-item'>
-            <Link to={'/'}>Home</Link>
+            <Link to={'/'}>Login</Link>
+          </li>
+          <li className='nav-item'>
+            <Link to={'/home'}>Home</Link>
           </li>
           <li className='nav-item'>
             <Link to={'/myworkouts'}>My Workouts</Link>

@@ -20,6 +20,7 @@ const Home = () => {
             <h1>Home</h1>
             <h2>Welcome, User!</h2>
             <p>Click on a date to see what you tracked that day!</p>
+            <p>pretend that there are future paid fancy features like graphs and charts here!</p>
             <Calendar onChange={setValue} value={value} onClickDay={handleDateChange} />
 
         </div>

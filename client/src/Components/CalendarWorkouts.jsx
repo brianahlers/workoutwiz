@@ -21,7 +21,7 @@ const CalendarWorkouts = () => {
     return (
         <div className="calendarWorkouts">
             <h1>CalendarWorkouts</h1>
-            <h1>this is where you arrive after you click on a date on the calenar</h1>
+            <h2>this is where you arrive after you click on a date on the calenar</h2>
         </div>
     );
 };
