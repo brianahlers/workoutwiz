@@ -16,7 +16,7 @@ async getAllExercises(req, res) {
 async getExerciseByDate(req, res) {
     try {
         const exercise = await Exercise.find({ date: req.params.date })
-            .select('__v');
+            .select('-__v');
 
         if (!exercise) {
             return res.status(404).json({ message: 'No exercise with that date' });
