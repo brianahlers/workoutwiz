@@ -14,6 +14,7 @@ View a list of your workouts or access them via the Calendar.
 
 - [Usage](#usage)
 - [Features](#features)
+- [Build-With](#built-with)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -30,9 +31,17 @@ Track your progress and earn gains.
 
 List the key features and functionalities of your project.
 
+## Built-With
+
+* [![React][React.js]][https://react.dev/]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![JQuery][JQuery.com]][JQuery-url]
+
 ## Contributing
 
-Specify how others can contribute to your project and any guidelines they should follow.
+* Brian Ahlers - [github.com/brianahlers](www.github.com/brianahlers)
+* Nysa Trejo   - [github.com/nysat](www.github.com/nysat)
+* Andrea K     - [github.com/akcodes29](www.github.com/akcodes29)
 
 ## License
 
