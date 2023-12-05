@@ -67,7 +67,7 @@ module.exports = {
     }
     const token = signToken(user);
     res.json({ token, user });
-    }, catch (error) {
+    }, catch (error) { console.log(error)
         res.status(500).json({ message: 'An error occurred', error });
     }
     

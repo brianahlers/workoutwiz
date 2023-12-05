@@ -37,19 +37,24 @@ const NewWorkout = () => {
     console.log(weight);
 
     const exerciseData = {
-      exercise: selectedExercise,
+      title: selectedExercise,
       sets: sets,
       reps: reps,
       weight: weight,
     };
 
     addExercise(exerciseData)
-      .then((response) => {
-        console.log('exercise added');
-      })
-      .catch((error) => {
-        // Handle any errors that occur during the request if needed
-      });
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response from the server
+      console.log('Server response:', data);
+      return data; // Return the response data if needed
+    })
+    .catch((error) => {
+      // Handle any errors that occur during the request
+      console.error('Error:', error);
+      throw error; // Throw the error if needed
+    });
   };
 
   return (

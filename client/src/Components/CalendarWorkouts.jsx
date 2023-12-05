@@ -2,13 +2,15 @@ import React, { useEffect } from 'react';
 import { useState}  from 'react';
 import { useParams } from 'react-router-dom';
 import { getExerciseByDate } from '../Utils/API';
+import { get } from 'mongoose';
 
 
 const CalendarWorkouts = () => {
     const {date} = useParams();
     console.log(date);
-    const unixDate = new Date(date);
+    const unixDate = new Date(date).toISOString().split('T')[0];
     console.log(unixDate);
+    const mongoDate = new Date(date)
     useEffect(() => {
         const getWorkouts = async () => {
             const response = await getExerciseByDate(unixDate);
