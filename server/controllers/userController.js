@@ -18,34 +18,21 @@ module.exports = {
     async getUserById(req, res) {
         try {
             const user = await User.findOne({ _id: req.params.userId })
-                .select('-__v')
-                .populate('Exercise'); //this is saying to populate exercise data into the user model
+                .select('-__v');
 
             if (!user) {
                 return res.status(404).json({ message: 'No user with that ID' });
             }
-
             res.json(user);
         } catch (err) {
             res.status(500).json(err);
         }
     },
 
-    // Create a user
-    // async createUser(req, res) { console.log (req.body)
-    //     try {
-    //         const user = await User.create(req.body);
-    //         res.json(user);
-    //     } catch (err) { 
-    //         console.log(err)
-    //         res.status(500).json(err);
-    //     }
-    // },
-
     // Delete a user
     async deleteUser(req, res) {
         try {
-            const user = await User.findOneAndDelete({ _id: req.params.userId });
+            const user = await User.findOneAndRemove({ _id: req.params.userId });
             if (!user) {
                 return res.status(404).json({ message: 'No user with this ID!' });
             }
@@ -54,6 +41,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+
     // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
   async createUser({ body }, res) {
     const user = await User.create(body);
@@ -67,6 +55,7 @@ module.exports = {
   // {body} is destructured req.body
   async login({ body }, res) {
     const user = await User.findOne({ $or: [{ username: body.username }, { email: body.email }] });
+    
     if (!user) {
       return res.status(400).json({ message: "Can't find this user" });
     }
@@ -78,6 +67,8 @@ module.exports = {
     }
     const token = signToken(user);
     res.json({ token, user });
+    }, catch (error) {
+        res.status(500).json({ message: 'An error occurred', error });
     }
     
 };

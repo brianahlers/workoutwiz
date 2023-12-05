@@ -1,4 +1,4 @@
-const { Exercise } = require('../models/Exercise'); //added the link here 
+const { Exercise } = require('../models'); //added the link here 
 
 module.exports = {
     //Get all exercises
@@ -16,7 +16,7 @@ async getAllExercises(req, res) {
 async getExerciseByDate(req, res) {
     try {
         const exercise = await Exercise.find({ date: req.params.date })
-            .select('-__v');
+            .select('__v');
 
         if (!exercise) {
             return res.status(404).json({ message: 'No exercise with that date' });
@@ -58,7 +58,7 @@ async updateExercise(req, res) {
     try {
         const exercise = await Exercise.findOneAndUpdate(
             {_id: req.params.exerciseId},
-            { $addToSet: { exercises: req.body } },
+            { $set: req.body  },
             { new: true, runValidators: true }
         );
         if (!exercise) {

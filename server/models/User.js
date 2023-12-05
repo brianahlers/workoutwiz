@@ -31,7 +31,7 @@ const userSchema = new Schema({
     toJSON: { 
       virtuals: true,
     },
-    id: false, //this code is saying to not include the id when json payload is requested
+    // id: false, //this code is saying to not include the id when json payload is requested
   }
 );
 
