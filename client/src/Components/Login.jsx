@@ -5,8 +5,29 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Perform login logic here
-    console.log('Logging in...');
+    // Create an object with the username and password
+    const loginData = {
+      username,
+      password
+    };
+  
+    // Send a POST request to the server
+    fetch('/api/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(loginData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response from the server
+        console.log(data);
+      })
+      .catch(error => {
+        // Handle any errors that occurred during the request
+        console.error(error);
+      });
   };
 
   return (
