@@ -4,7 +4,7 @@ const {
   getUserById,
   createUser,
   deleteUser,
-  login
+  login,
 } = require('../../controllers/userController');
 
 // /api/users

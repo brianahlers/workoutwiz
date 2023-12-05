@@ -17,8 +17,8 @@ const userSchema = new Schema({
     },
     password: {
         type: String,
-        required: 'You need to provide a password!',
-        minlength: 8
+        required: true,
+        
     },
     exercises: [
         {
@@ -47,7 +47,7 @@ userSchema.pre('save', async function (next) {
   
   // custom method to compare and validate password for logging in
   userSchema.methods.isCorrectPassword = async function (password) {
-    return bcrypt.compare(password, this.password);
+    return await bcrypt.compare(password, this.password);
   };
   
 
