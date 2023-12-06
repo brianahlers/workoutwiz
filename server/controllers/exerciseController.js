@@ -14,7 +14,7 @@ async getAllExercises(req, res) {
 //Get all exercises by user id
 async getAllExercisesByUserId(req, res) {
     try {
-        const exercises = await Exercise.find({ user: req.params.userId })
+        const exercises = await Exercise.find({ user_id: req.params.userId })
             .select('-__v');
 
         if (!exercises) {
@@ -31,7 +31,7 @@ async getAllExercisesByUserId(req, res) {
 //get exercise by specific date
 async getExerciseByDate(req, res) {
     try {
-        const exercise = await Exercise.find({ date: req.params.date })
+        const exercise = await Exercise.find({ date: req.params.date, user_id: req.params.userId })
             .select('-__v');
 
         if (!exercise) {

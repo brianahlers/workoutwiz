@@ -4,13 +4,21 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Logo from '../assets/favicon-32x32.png'
+import Auth from '../Utils/Auth';
+import { useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 // import NavbarCollapse from 'react-bootstrap/NavbarCollapse'
 // import Nav from 'react-bootstrap/Nav'
 
 
 const Nav = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    Auth.logout();
+    navigate('/');
+  };
   return (
-    <div className='Nav'>
+    <Container className='Nav'>
       <nav className='nav navbar'>
         <ul className='nav-list'>
           <li className='nav-item'>
@@ -26,11 +34,11 @@ const Nav = () => {
             <Link to={'/newworkout'}>New Workout</Link>
           </li>
           <li className='nav-item'>
-            <Link to={'/logout'}>Logout</Link>
+            <Button onClick={handleLogout}>Logout</Button>
           </li>
         </ul>
       </nav>
-    </div>
+    </Container>
   );
 };
 

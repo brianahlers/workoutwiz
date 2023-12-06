@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { addExercise } from '../Utils/API';
 import exerciseList from './ExerciseList';
+import Container from 'react-bootstrap/Container';
+import Auth from '../Utils/Auth';
 
 
 const NewWorkout = () => {
@@ -9,6 +11,12 @@ const NewWorkout = () => {
   const [reps, setReps] = useState('');
   const [weight, setWeight] = useState('');
   const [dropdownVisible, setDropdownVisible] = useState(false);
+
+  const userId = Auth.getProfile().data._id;
+
+  // useEffect(() => {
+  //   const user = Auth.getProfile()
+  // }, []);
 
   const handleExerciseChange = (event) => {
     setSelectedExercise(event.target.value);
@@ -54,7 +62,8 @@ const NewWorkout = () => {
       sets: sets,
       reps: reps,
       weight: weight,
-      date: date
+      date: date,
+      user_id: userId
     };
 
     addExercise(exerciseData)
@@ -74,12 +83,12 @@ const NewWorkout = () => {
   return (
     <>
       <h1>NewWorkout</h1>
-      <div className="dropdown">
+      <Container className="dropdown">
         <button onClick={toggleDropdown}>Select an Exercise</button>
         {dropdownVisible && (
-          <div className="dropdown-content">
+          <Container className="dropdown-content">
             {exerciseList.map((exercise) => (
-              <div
+              <Container
                 key={exercise}
                 onClick={() => {
                   setSelectedExercise(exercise);
@@ -87,11 +96,11 @@ const NewWorkout = () => {
                 }}
               >
                 {exercise}
-              </div>
+              </Container>
             ))}
-          </div>
+          </Container>
         )}
-      </div>
+      </Container>
       <input
         type="number"
         placeholder="Sets"

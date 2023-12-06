@@ -16,7 +16,7 @@ router.route('/')
 .post(createExercise);
 
 // /api/exercises/:userId
-router.route('/:userId')
+router.route('/user/:userId')
 .get(getAllExercisesByUserId)
 
 // /api/exercises/:exerciseId
@@ -26,7 +26,7 @@ router.route('/:exerciseId')
 .delete(deleteExercise);
 
 // /api/exercises/date/:date
-router.route('/date/:date')
+router.route('/date/:date/:userId')
 .get(getExerciseByDate);
 
 
