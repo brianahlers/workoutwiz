@@ -6,16 +6,21 @@ import { get } from 'mongoose';
 
 
 const CalendarWorkouts = () => {
+    const [workouts, setWorkouts] = useState([]);
     const {date} = useParams();
-    console.log(date);
+    
+    console.log("date", date);
     const unixDate = new Date(date).toISOString().split('T')[0];
-    console.log(unixDate);
-    const mongoDate = new Date(date)
+    console.log("unix date",unixDate);
+    const newDate = new Date(date)
+    const mongoDate = newDate.toISOString()
+    console.log("mongo date", mongoDate);
     useEffect(() => {
         const getWorkouts = async () => {
             const response = await getExerciseByDate(unixDate);
             console.log(response);
             const data = await response.json();
+            setWorkouts(data);
             console.log(data);
         };
         getWorkouts();
@@ -23,9 +28,20 @@ const CalendarWorkouts = () => {
     return (
         <div className="calendarWorkouts">
             <h1>CalendarWorkouts</h1>
-            <h2>this is where you arrive after you click on a date on the calenar</h2>
+            <h2>this is where you arrive after you click on a date on the calendar</h2>
+        {workouts.map((workout) => {
+            return (
+                <div key={workout._id}>
+                    <h3>{workout.title}</h3>
+                    <p>{workout.sets} sets of {workout.reps} reps at {workout.weight} lbs</p>
+                </div>
+            )
+
+        })}
         </div>
     );
 };
+
+
 
 export default CalendarWorkouts;

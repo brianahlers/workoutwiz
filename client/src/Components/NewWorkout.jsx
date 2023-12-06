@@ -36,25 +36,39 @@ const NewWorkout = () => {
     console.log(reps);
     console.log(weight);
 
+    const currentDate = new Date();
+    const dateStr = JSON.stringify(currentDate);
+
+    const dateArr = dateStr.split('T');
+    const splitDateArr = dateArr[0].split("");
+    const removedQuoteArr = splitDateArr.filter((item, index) => {
+      return index !== 0;
+    })
+    console.log(removedQuoteArr);
+    const date = removedQuoteArr.join("");
+
+    console.log(date);
+
     const exerciseData = {
       title: selectedExercise,
       sets: sets,
       reps: reps,
       weight: weight,
+      date: date
     };
 
     addExercise(exerciseData)
-    .then((response) => response.json())
-    .then((data) => {
-      // Handle the response from the server
-      console.log('Server response:', data);
-      return data; // Return the response data if needed
-    })
-    .catch((error) => {
-      // Handle any errors that occur during the request
-      console.error('Error:', error);
-      throw error; // Throw the error if needed
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle the response from the server
+        console.log('Server response:', data);
+        return data; // Return the response data if needed
+      })
+      .catch((error) => {
+        // Handle any errors that occur during the request
+        console.error('Error:', error);
+        throw error; // Throw the error if needed
+      });
   };
 
   return (

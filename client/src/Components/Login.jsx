@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+
+
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -21,10 +24,21 @@ const Login = () => {
       },
       body: JSON.stringify(loginData)
     })
-      .then(response => response.json())
+      .then(response => {
+        // Check if the response comes back as OK
+        if (response.ok) {
+          // If so, redirect to the home page
+          window.location.replace('/home');
+        } else {
+          // If an error occurs, show an alert message
+          alert('Incorrect username or password!');
+        }
+      })
       .then(data => {
         // Handle the response from the server
         console.log(data);
+        console.log(data.status)
+        console.log(response.status)
       })
       .catch(error => {
         // Handle any errors that occurred during the request
@@ -34,6 +48,8 @@ const Login = () => {
 
   return (
     <div>
+      <h1>Create User</h1>
+      
       <h1>Login</h1>
       <form>
         <input
@@ -57,6 +73,3 @@ const Login = () => {
 };
 
 export default Login;
-
-
-//fetch data from server to corresponding endpoint /api/users/login (post) (req.body is username,email and password)

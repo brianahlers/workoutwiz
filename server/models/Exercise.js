@@ -10,9 +10,8 @@ const exerciseSchema = new Schema(
             trim: true
         },
         date: {
-            type: Date, 
-            default: Date.now,
-            // required: 'You need to provide a date!',
+            type: String, 
+            required: true
         },
         sets: {
             type: Number,

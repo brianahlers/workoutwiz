@@ -66,7 +66,7 @@ module.exports = {
       return res.status(400).json({ message: 'Wrong password!' });
     }
     const token = signToken(user);
-    res.json({ token, user });
+    res.json({ token, user }).status(200);
     }, catch (error) { console.log(error)
         res.status(500).json({ message: 'An error occurred', error });
     }
