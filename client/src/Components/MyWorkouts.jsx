@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
+import { getExerciseByDate } from '../Utils/API';
 
 const MyWorkouts = () => {
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
     // Fetch workout data from the server
-    fetch('/api/workouts')
+    fetch('/api/exercises/:userId')
       .then(response => response.json())
       .then(data => {
         // Set the fetched workout data in state
