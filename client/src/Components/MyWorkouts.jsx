@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 const MyWorkouts = () => {
   const [workouts, setWorkouts] = useState([]);
@@ -24,11 +24,14 @@ const MyWorkouts = () => {
 
       {/* Display the workout data */}
       {workouts.map(workout => (
-        <div key={workout.id}>
-          <h3>{workout.title}</h3>
-          <p>{workout.description}</p>
-          {/* Add additional workout details here */}
-        </div>
+        <Card key={workout.id}>
+          <Card.Body>
+            <Card.Title>{workout.date}</Card.Title>
+            <Card.Text>{workout.title}</Card.Text>
+            <Card.Text>{workout.description}</Card.Text>
+            {/* Add additional workout details here */}
+          </Card.Body>
+        </Card>
       ))}
     </>
   );
