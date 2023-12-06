@@ -11,6 +11,22 @@ async getAllExercises(req, res) {
     }
 
 },
+//Get all exercises by user id
+async getAllExercisesByUserId(req, res) {
+    try {
+        const exercises = await Exercise.find({ user: req.params.userId })
+            .select('-__v');
+
+        if (!exercises) {
+            return res.status(404).json({ message: 'No exercise with that user ID' });
+        }
+
+        res.json(exercises);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+
+},
 
 //get exercise by specific date
 async getExerciseByDate(req, res) {

@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {
     getAllExercises,
+    getAllExercisesByUserId,
     getExerciseByDate,
     getExerciseById,
     createExercise,
@@ -11,7 +12,12 @@ const {
 // /api/exercises
 router.route('/')
 .get(getAllExercises)
+
 .post(createExercise);
+
+// /api/exercises/:userId
+router.route('/:userId')
+.get(getAllExercisesByUserId)
 
 // /api/exercises/:exerciseId
 router.route('/:exerciseId')
