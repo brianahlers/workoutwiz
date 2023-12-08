@@ -11,6 +11,8 @@ const NewWorkout = () => {
   const [reps, setReps] = useState('');
   const [weight, setWeight] = useState('');
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const userId = Auth.getProfile().data._id;
 
@@ -66,8 +68,18 @@ const NewWorkout = () => {
       user_id: userId
     };
 
-    addExercise(exerciseData)
-      .then((response) => response.json())
+    if (selectedExercise === '' || sets === '' || reps === '' || weight === '') {
+      setSuccess(false);
+      setSubmitted(true);
+    } else {
+      addExercise(exerciseData)
+      .then((response) => {
+        response.json()
+        if (response.status === 200) {
+          setSuccess(true);
+          setSubmitted(true);
+        }
+      })
       .then((data) => {
         // Handle the response from the server
         console.log('Server response:', data);
@@ -78,6 +90,10 @@ const NewWorkout = () => {
         console.error('Error:', error);
         throw error; // Throw the error if needed
       });
+      setSets('');
+      setReps('');
+      setWeight('');
+    }
   };
 
   return (
@@ -120,6 +136,13 @@ const NewWorkout = () => {
         onChange={handleWeightChange}
       />
       <button onClick={handleAddExercise}>Add Exercise</button>
+      {success && submitted ? (
+        <p>Exercise Added!</p>
+      ) : !success && submitted ?  (
+        <p>Please fill out all fields</p>
+      ) : (
+        <></>
+      )}
     </>
   );
 };

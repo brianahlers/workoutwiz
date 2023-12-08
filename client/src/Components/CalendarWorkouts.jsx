@@ -14,9 +14,9 @@ const CalendarWorkouts = () => {
   console.log("date", date);
   const unixDate = new Date(date).toISOString().split('T')[0];
   console.log("unix date", unixDate);
-  const newDate = new Date(date)
-  const mongoDate = newDate.toISOString()
-  console.log("mongo date", mongoDate);
+  // const newDate = new Date(date)
+  // const mongoDate = newDate.toISOString()
+  // console.log("mongo date", mongoDate);
   useEffect(() => {
     const getWorkouts = async () => {
       const response = await getExerciseByDate(unixDate, userId);
