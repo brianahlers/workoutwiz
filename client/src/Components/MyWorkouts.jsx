@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import { getExerciseByDate } from '../Utils/API';
-import Auth from '../Utils/Auth';
+import Auth from '../Utils/auth';
 
 const MyWorkouts = () => {
   const [workouts, setWorkouts] = useState([]);
