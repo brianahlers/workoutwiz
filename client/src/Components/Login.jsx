@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import { useNavigate } from "react-router-dom";
-import Auth from '../Utils/Auth';
+import Auth from '../Utils/auth';
 
 
 

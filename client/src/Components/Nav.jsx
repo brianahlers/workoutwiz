@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Logo from '../assets/favicon-32x32.png'
-import Auth from '../Utils/Auth';
+import Auth from '../Utils/auth';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 // import NavbarCollapse from 'react-bootstrap/NavbarCollapse'
