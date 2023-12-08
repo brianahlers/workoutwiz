@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { addExercise } from '../Utils/API';
 import exerciseList from './ExerciseList';
 import Container from 'react-bootstrap/Container';
-import Auth from '../Utils/Auth';
+import Auth from '../Utils/auth';
 
 
 const NewWorkout = () => {
