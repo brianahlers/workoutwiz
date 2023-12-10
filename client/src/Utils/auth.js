@@ -34,6 +34,15 @@ class AuthService {
   logout() {
     localStorage.removeItem('id_token');
   }
+
+  setLoggedInUser(username) {
+    localStorage.setItem('loggedInUser', username);
+  }
+
+  getLoggedInUser() {
+    return localStorage.getItem('loggedInUser');
+  }
+
 }
 
 export default new AuthService();

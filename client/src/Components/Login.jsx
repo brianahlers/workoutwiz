@@ -47,6 +47,7 @@ const Login = () => {
         // Handle the response from the server
         console.log(data);
         Auth.login(data.token)
+        Auth.setLoggedInUser(username)
         navigate("/home");
       })
       .catch(error => {
@@ -87,6 +88,7 @@ const Login = () => {
         console.log(data);
         Auth.login(data.token)
         navigate("/home");
+        
       })
       .catch(error => {
         // Handle any errors that occurred during the request
