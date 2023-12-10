@@ -1,12 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Logo from '../assets/favicon-32x32.png'
+import { Link as RouterLink } from 'react-router-dom';
+// import Container from 'react-bootstrap/Container';
+// import Navbar from 'react-bootstrap/Navbar';
+// import NavDropdown from 'react-bootstrap/NavDropdown';
+// import Logo from '../assets/favicon-32x32.png'
 import Auth from '../Utils/auth';
 import { useNavigate } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { AppBar, Toolbar, Button } from '@mui/material';
+
 // import NavbarCollapse from 'react-bootstrap/NavbarCollapse'
 // import Nav from 'react-bootstrap/Nav'
 
@@ -18,27 +19,38 @@ const Nav = () => {
     navigate('/');
   };
   return (
-    <Container className='Nav'>
-      <nav className='nav navbar'>
-        <ul className='nav-list'>
-          <li className='nav-item'>
-            <Link to={'/'}>Login</Link>
-          </li>
-          <li className='nav-item'>
-            <Link to={'/home'}>Home</Link>
-          </li>
-          <li className='nav-item'>
-            <Link to={'/myworkouts'}>My Workouts</Link>
-          </li>
-          <li className='nav-item'>
-            <Link to={'/newworkout'}>New Workout</Link>
-          </li>
-          <li className='nav-item'>
-            <Button onClick={handleLogout}>Logout</Button>
-          </li>
-        </ul>
-      </nav>
-    </Container>
+    // <Container className='Nav'>
+    //   <nav className='nav navbar'>
+    //     <ul className='nav-list'>
+    //       <li className='nav-item'>
+    //         <Link to={'/'}>Login</Link>
+    //       </li>
+    //       <li className='nav-item'>
+    //         <Link to={'/home'}>Home</Link>
+    //       </li>
+    //       <li className='nav-item'>
+    //         <Link to={'/myworkouts'}>My Workouts</Link>
+    //       </li>
+    //       <li className='nav-item'>
+    //         <Link to={'/newworkout'}>New Workout</Link>
+    //       </li>
+    //       <li className='nav-item'>
+    //         <Button onClick={handleLogout}>Logout</Button>
+    //       </li>
+    //     </ul>
+    //   </nav>
+    // </Container>
+
+    <AppBar position="static">
+    <Toolbar>
+      <Button color="inherit" component={RouterLink} to="/">Login</Button>
+      <Button color="inherit" component={RouterLink} to="/home">Home</Button>
+      <Button color="inherit" component={RouterLink} to="/myworkouts">My Workouts</Button>
+      <Button color="inherit" component={RouterLink} to="/newworkout">New Workout</Button>
+      <Button color="inherit" onClick={handleLogout}>Logout</Button>
+    </Toolbar>
+  </AppBar>
+
   );
 };
 
