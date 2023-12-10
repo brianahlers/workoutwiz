@@ -6,7 +6,6 @@ import Auth from '../Utils/auth';
 
 
 
-
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
