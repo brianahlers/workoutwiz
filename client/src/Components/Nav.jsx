@@ -43,7 +43,7 @@ const Nav = () => {
 
     <AppBar position="static">
     <Toolbar>
-      <Button color="inherit" component={RouterLink} to="/">Login</Button>
+      {!Auth.loggedIn() && <Button color="inherit" component={RouterLink} to="/">Login</Button>}
       <Button color="inherit" component={RouterLink} to="/home">Home</Button>
       <Button color="inherit" component={RouterLink} to="/myworkouts">My Workouts</Button>
       <Button color="inherit" component={RouterLink} to="/newworkout">New Workout</Button>
