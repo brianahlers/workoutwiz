@@ -47,6 +47,7 @@ const Login = () => {
         // Handle the response from the server
         console.log(data);
         Auth.login(data.token)
+        // Connects username to local storage to display on home page
         Auth.setLoggedInUser(username)
         navigate("/home");
       })
