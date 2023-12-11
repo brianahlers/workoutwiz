@@ -3,10 +3,29 @@ import { addExercise } from '../Utils/API';
 import exerciseList from './ExerciseList';
 import Container from 'react-bootstrap/Container';
 import Auth from '../Utils/auth';
+import { TextField } from '@mui/material';
+import ListSubheader from '@mui/material/ListSubheader';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Collapse from '@mui/material/Collapse';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import DraftsIcon from '@mui/icons-material/Drafts';
+import SendIcon from '@mui/icons-material/Send';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import StarBorder from '@mui/icons-material/StarBorder';
+
 
 
 
 const NewWorkout = () => {
+  const [open, setOpen] = React.useState(true);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
   const [selectedExercise, setSelectedExercise] = useState('');
   const [sets, setSets] = useState('');
   const [reps, setReps] = useState('');
@@ -24,6 +43,7 @@ const NewWorkout = () => {
   const handleExerciseChange = (event) => {
     setSelectedExercise(event.target.value);
   };
+  console.log(selectedExercise)
 
   const handleSetsChange = (event) => {
     setSets(event.target.value);
@@ -74,23 +94,23 @@ const NewWorkout = () => {
       setSubmitted(true);
     } else {
       addExercise(exerciseData)
-      .then((response) => {
-        response.json()
-        if (response.status === 200) {
-          setSuccess(true);
-          setSubmitted(true);
-        }
-      })
-      .then((data) => {
-        // Handle the response from the server
-        console.log('Server response:', data);
-        return data; // Return the response data if needed
-      })
-      .catch((error) => {
-        // Handle any errors that occur during the request
-        console.error('Error:', error);
-        throw error; // Throw the error if needed
-      });
+        .then((response) => {
+          response.json()
+          if (response.status === 200) {
+            setSuccess(true);
+            setSubmitted(true);
+          }
+        })
+        .then((data) => {
+          // Handle the response from the server
+          console.log('Server response:', data);
+          return data; // Return the response data if needed
+        })
+        .catch((error) => {
+          // Handle any errors that occur during the request
+          console.error('Error:', error);
+          throw error; // Throw the error if needed
+        });
       setSets('');
       setReps('');
       setWeight('');
@@ -99,8 +119,39 @@ const NewWorkout = () => {
 
   return (
     <>
+    <div style={{display: 'grid', height: '90vh', alignContent: 'center', justifyContent: 'center'} }>
       <h1>NewWorkout</h1>
-      <Container className="dropdown">
+      <List
+        sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+        component="nav"
+        aria-labelledby="nested-list-subheader"
+      >
+        <ListItemButton onClick={handleClick}>
+          <ListItemText primary="Select an Exercise" />
+          {open ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            {exerciseList.map((exercise) => (
+              <ListItemButton sx={{ pl: 4, backgroundColor: '' } }
+                key={exercise}
+                onClick={() => {
+                  setSelectedExercise(exercise);
+                  setDropdownVisible(false);
+                  setOpen(!open)
+                }}
+              >
+                <ListItemIcon>
+
+                  <StarBorder />
+                </ListItemIcon>
+                <ListItemText primary={exercise} />
+              </ListItemButton>
+            ))}
+          </List>
+        </Collapse>
+      </List>
+      {/* <Container className="dropdown">
         <button onClick={toggleDropdown}>Select an Exercise</button>
         {dropdownVisible && (
           <Container className="dropdown-content">
@@ -117,33 +168,38 @@ const NewWorkout = () => {
             ))}
           </Container>
         )}
-      </Container>
-      <input
+      </Container> */}
+      <h4>You selected: {selectedExercise} </h4>
+      <TextField
         type="number"
-        placeholder="Sets"
+        label="Sets"
         value={sets}
         onChange={handleSetsChange}
+        variant="outlined"
       />
-      <input
+      <TextField
         type="number"
-        placeholder="Reps"
+        label="Reps"
         value={reps}
         onChange={handleRepsChange}
+        variant="outlined"
       />
-      <input
+      <TextField
         type="number"
-        placeholder="Weight"
+        label="Weight"
         value={weight}
         onChange={handleWeightChange}
+        variant="outlined"
       />
       <button onClick={handleAddExercise}>Add Exercise</button>
       {success && submitted ? (
         <p>Exercise Added!</p>
-      ) : !success && submitted ?  (
+      ) : !success && submitted ? (
         <p>Please fill out all fields</p>
       ) : (
         <></>
       )}
+      </div>
     </>
   );
 };
