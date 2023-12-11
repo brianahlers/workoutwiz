@@ -86,21 +86,9 @@ async updateExercise(req, res) {
         res.status(500).json(err);
     }
 },
-//Delete an exercise
 
-// async deleteExercise({ user, params }, res) {
-//         const updatedUser = await Exercise.findOneAndUpdate(
-//             { _id: user.exerciseId },
-//             { $pull: { exercises: { exerciseId: params.exerciseId } } },
-//             { new: true }
-//             );
-//         if (!updatedUser) {
-//             return res.status(404).json({ message: 'No exercise with this ID!' });
-//         }
-//         return res.json(updatedUser);
-//     }, 
-    
 
+//Delete an exercise    
     async deleteExercise(req, res) {
         try {
             const exercise = await Exercise.findOneAndRemove({ _id: req.params.exerciseId });
