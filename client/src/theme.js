@@ -1,18 +1,16 @@
 import * as React from 'react';
-import { createTheme } from '@mui/material/styles';
+import { createTheme , responsiveFontSizes  } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 
-
-
-
 // Create a theme instance.
-const theme = createTheme({
+let theme = createTheme({
+  
   palette: {
     primary: {
-      main: '#D656F0',
+      main: '#807AAC',
     },
     secondary: {
-      main: '#55335B',
+      main: '#9DEF5C',
     },
     background: {
         default: '#ECD5F1',
@@ -29,13 +27,15 @@ const theme = createTheme({
             // '"Apple Color Emoji"',
             // '"Segoe UI Emoji"',
             // '"Segoe UI Symbol"',
+            'Bebas Neue',
           ].join(','),
         },
     error: {
       main: red.A400,
     },
   },
+ 
 });
-
+theme = responsiveFontSizes(theme)
 
 export default theme;
