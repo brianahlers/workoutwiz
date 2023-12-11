@@ -17,5 +17,15 @@ export const addExercise = (exerciseData) => {
       body: JSON.stringify(exerciseData),
     })
   };
+  
+
+  export const deleteExercise = (exerciseId, token) => {
+    return fetch(`/api/exercises/${exerciseId}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: `XYZ ${token}`,
+      },
+    });
+  };
 
 

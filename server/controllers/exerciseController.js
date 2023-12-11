@@ -1,4 +1,5 @@
-const { Exercise } = require('../models'); //added the link here 
+const { Exercise } = require('../models');
+const { User } = require('../models');
 
 module.exports = {
     //Get all exercises
@@ -86,15 +87,30 @@ async updateExercise(req, res) {
     }
 },
 //Delete an exercise
-async deleteExercise(req, res) {
-    try {
-        const exercise = await Exercise.findOneAndRemove({ _id: req.params.exerciseId });
-        if (!exercise) {
-            return res.status(404).json({ message: 'No exercise with this ID!' });
+
+// async deleteExercise({ user, params }, res) {
+//         const updatedUser = await Exercise.findOneAndUpdate(
+//             { _id: user.exerciseId },
+//             { $pull: { exercises: { exerciseId: params.exerciseId } } },
+//             { new: true }
+//             );
+//         if (!updatedUser) {
+//             return res.status(404).json({ message: 'No exercise with this ID!' });
+//         }
+//         return res.json(updatedUser);
+//     }, 
+    
+
+    async deleteExercise(req, res) {
+        try {
+            const exercise = await Exercise.findOneAndRemove({ _id: req.params.exerciseId });
+            if (!exercise) {
+                return res.status(404).json({ message: 'No exercise with this ID!' });
+            }
+            res.json(exercise);
+        } catch (err) {
+            res.status(500).json(err);
         }
-        res.json(exercise);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-},
+    },
+
 };
