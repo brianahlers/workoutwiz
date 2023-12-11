@@ -16,6 +16,8 @@ import SendIcon from '@mui/icons-material/Send';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
+import Box from '@mui/material/Box'; // allows spacing at the top
+import Button from '@mui/material/Button'; // button styling
 
 
 
@@ -119,86 +121,85 @@ const NewWorkout = () => {
 
   return (
     <>
-    <div style={{display: 'grid', height: '90vh', alignContent: 'center', justifyContent: 'center'} }>
-      <h1>NewWorkout</h1>
-      <List
-        sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-        component="nav"
-        aria-labelledby="nested-list-subheader"
-      >
-        <ListItemButton onClick={handleClick}>
-          <ListItemText primary="Select an Exercise" />
-          {open ? <ExpandLess /> : <ExpandMore />}
-        </ListItemButton>
-        <Collapse in={open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            {exerciseList.map((exercise) => (
-              <ListItemButton sx={{ pl: 4, backgroundColor: '' } }
-                key={exercise}
-                onClick={() => {
-                  setSelectedExercise(exercise);
-                  setDropdownVisible(false);
-                  setOpen(!open)
-                }}
-              >
-                <ListItemIcon>
+    <div style={{ display: 'grid', alignContent: 'center', justifyContent: 'center' }}>
+      <Box sx={{ flexGrow: 1 }} mt={4} />
+        <h1>Add A New Workout</h1>
+    </div>
+    <Box sx={{ flexGrow: 1 }} mt={4} />
+      <div style={{ display: 'grid', alignContent: 'center', justifyContent: 'center' }}>
+        
+        <List
+          sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+          component="nav"
+          aria-labelledby="nested-list-subheader"
+        >
+          <ListItemButton onClick={handleClick}>
+            <ListItemText primary="Select an Exercise" />
+            {open ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              {exerciseList.map((exercise) => (
+                <ListItemButton sx={{ pl: 4, backgroundColor: '' }}
+                  key={exercise}
+                  onClick={() => {
+                    setSelectedExercise(exercise);
+                    setDropdownVisible(false);
+                    setOpen(!open)
+                  }}
+                >
+                  <ListItemIcon>
 
-                  <StarBorder />
-                </ListItemIcon>
-                <ListItemText primary={exercise} />
-              </ListItemButton>
-            ))}
-          </List>
-        </Collapse>
-      </List>
-      {/* <Container className="dropdown">
-        <button onClick={toggleDropdown}>Select an Exercise</button>
-        {dropdownVisible && (
-          <Container className="dropdown-content">
-            {exerciseList.map((exercise) => (
-              <Container
-                key={exercise}
-                onClick={() => {
-                  setSelectedExercise(exercise);
-                  setDropdownVisible(false);
-                }}
-              >
-                {exercise}
-              </Container>
-            ))}
-          </Container>
+                    <StarBorder />
+                  </ListItemIcon>
+                  <ListItemText primary={exercise} />
+                </ListItemButton>
+              ))}
+            </List>
+          </Collapse>
+        </List>
+       
+        <Box sx={{ flexGrow: 1 }} mt={4} />
+        <h4 className="bold"> You selected: {selectedExercise} </h4>
+        <Box sx={{ flexGrow: 1 }} mt={2} />
+        <TextField
+          type="number"
+          label="Sets"
+          value={sets}
+          onChange={handleSetsChange}
+          variant="outlined"
+        />
+        <Box sx={{ flexGrow: 1 }} mt={2} />
+        <TextField
+          type="number"
+          label="Reps"
+          value={reps}
+          onChange={handleRepsChange}
+          variant="outlined"
+        />
+        <Box sx={{ flexGrow: 1 }} mt={2} />
+        <TextField
+          type="number"
+          label="Weight"
+          value={weight}
+          onChange={handleWeightChange}
+          variant="outlined"
+        />
+        <Box sx={{ flexGrow: 1 }} mt={2} />
+        <Button variant="contained" color="primary" onClick={handleAddExercise}
+          sx={{
+            borderRadius: '20px',
+            padding: '10px 20px',
+            fontSize: '1.2rem',
+          }}
+        > Add Exercise</Button>
+        {success && submitted ? (
+          <p>Exercise Added!</p>
+        ) : !success && submitted ? (
+          <p>Please fill out all fields</p>
+        ) : (
+          <></>
         )}
-      </Container> */}
-      <h4>You selected: {selectedExercise} </h4>
-      <TextField
-        type="number"
-        label="Sets"
-        value={sets}
-        onChange={handleSetsChange}
-        variant="outlined"
-      />
-      <TextField
-        type="number"
-        label="Reps"
-        value={reps}
-        onChange={handleRepsChange}
-        variant="outlined"
-      />
-      <TextField
-        type="number"
-        label="Weight"
-        value={weight}
-        onChange={handleWeightChange}
-        variant="outlined"
-      />
-      <button onClick={handleAddExercise}>Add Exercise</button>
-      {success && submitted ? (
-        <p>Exercise Added!</p>
-      ) : !success && submitted ? (
-        <p>Please fill out all fields</p>
-      ) : (
-        <></>
-      )}
       </div>
     </>
   );
