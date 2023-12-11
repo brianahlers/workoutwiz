@@ -3,6 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import { useNavigate } from "react-router-dom";
 import Auth from '../Utils/auth';
+import Grid from '@mui/material/Grid'; // puts the login and new user in 2 grids side by side
+import Box from '@mui/material/Box'; // allows spacing at the top of the 2 grids
+import Button from '@mui/material/Button'; // button styling
 
 
 
@@ -22,7 +25,7 @@ const Login = () => {
       username,
       password
     };
-  
+
     // Send a POST request to the server
     // this endpoint is likely not correct on line 16
     fetch('/api/users/login', {
@@ -63,7 +66,7 @@ const Login = () => {
       password: passwordSignup,
       email: email
     };
-  
+
     // Send a POST request to the server
     // this endpoint is likely not correct on line 16
     fetch('/api/users/', {
@@ -89,7 +92,7 @@ const Login = () => {
         console.log(data);
         Auth.login(data.token)
         navigate("/home");
-        
+
       })
       .catch(error => {
         // Handle any errors that occurred during the request
@@ -98,49 +101,72 @@ const Login = () => {
   };
 
   return (
-    <Container>
-      <h1>Create User</h1>
-      <form>
-      <input
-          type="text"
-          placeholder="Username"
-          value={userNameSignup}
-          onChange={(event) => setuserNameSignup(event.target.value)}
-        />
-      <input
-          type="email"
-          placeholder="email address"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={passwordSignup}
-          onChange={(event) => setPasswordSignup(event.target.value)}
-        />
-        <button type="button" onClick={handleSignup}> 
-          Sign Up
-        </button>
-      </form>
-      <h1>Login</h1>
-      <form>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-        <button type="button" onClick={handleLogin}> 
-          Login
-        </button>
-      </form>
+    <Container >
+      <Box sx={{ flexGrow: 1 }} mt={4} />
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+          <h1>Login</h1>
+          <form>
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+            />
+            <Box sx={{ flexGrow: 1 }} mt={2} />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
+            <Box sx={{ flexGrow: 1 }} mt={2} />
+            <Button variant="contained" color="primary" type="button" onClick={handleLogin}  
+            sx={{
+              borderRadius: '20px',
+              padding: '10px 20px',
+              fontSize: '1.2rem',
+            }} >
+              Login
+            </Button>
+          </form>
+        </Grid>
+
+        <Grid item xs={6}>
+          <h1>New User</h1>
+          <form>
+            <input
+              type="text"
+              placeholder="Username"
+              value={userNameSignup}
+              onChange={(event) => setuserNameSignup(event.target.value)}
+            />
+            <Box sx={{ flexGrow: 1 }} mt={2} />
+            <input
+              type="email"
+              placeholder="email address"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+            <Box sx={{ flexGrow: 1 }} mt={2} />
+            <input
+              type="password"
+              placeholder="Password"
+              value={passwordSignup}
+              onChange={(event) => setPasswordSignup(event.target.value)}
+            />
+            <Box mt={2} />
+            <Button variant="contained" color="primary" type="button" onClick={handleSignup} 
+            sx={{
+              borderRadius: '20px',
+              padding: '10px 20px',
+              fontSize: '1.2rem',
+            }}>
+              Sign Up
+            </Button>
+          </form>
+        </Grid>
+      </Grid>
     </Container>
   );
 };

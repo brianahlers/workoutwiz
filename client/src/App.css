@@ -1,9 +1,9 @@
-/* #root {
+#root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-} */
+}
 
 .logo {
   height: 6em;
@@ -43,11 +43,6 @@
   flex-wrap: nowrap;
   margin-bottom: 2em;
   font-size: 25px;
-}
-
-/* this controls the color of the font in the nav bar */
-.nav-item a {
-  color: #f51818; 
 }
 
 @keyframes logo-spin {
