@@ -7,6 +7,8 @@ import MyWorkouts from './Components/MyWorkouts'
 import NewWorkout from './Components/NewWorkout'
 import Header from './Components/Header'
 import CalendarWorkouts from './Components/CalendarWorkouts'
+import Ask from './Components/Ask'
+import ThankYou from './Components/ThankYou'
 
 function App() {
 return (
@@ -18,6 +20,8 @@ return (
       <Route path='/myworkouts' element={<MyWorkouts/>} />
       <Route path='/newworkout' element={<NewWorkout />} />
       <Route path='/calendarworkouts/:date' element={<CalendarWorkouts />} />
+      <Route path='/ask' element={<Ask />} />
+      <Route path='/thankyou' element={<ThankYou />} />
     </Routes>
   </Router>
 )
