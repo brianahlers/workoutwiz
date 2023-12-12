@@ -59,15 +59,15 @@ const MyWorkouts = () => {
       {/* Display the workout data */}
       {workouts.map(workout => (
         <>
-          <Card key={workout.id} sx={{ maxWidth: 500, margin: 'auto', mt: 2, mb: 2 }}>
+          <Card key={workout.id} sx={{ maxWidth: 350, margin: 'auto', mt: 2, mb: 2 }}>
 
             <CardContent>
-              <Typography variant='h4' gutterBottom>Type: {workout.title}</Typography>
+              <Typography variant='h4' gutterBottom> {workout.title}</Typography>
               <Typography variant='h6'>Date: {workout.date}</Typography>
               <Typography variant='h6'>Rep: {workout.reps}</Typography>
               <Typography variant='h6'>Set: {workout.sets}</Typography>
               <Typography variant='h6'>Weight: {workout.weight}</Typography>
-              <Buttton variant='contained' color='primary'>Edit</Buttton>
+              <Box sx={{ flexGrow: 1 }} mt={1} />
               <Buttton variant='contained' color='primary' onClick={() => handleDeleteExercise(workout._id)}>Delete</Buttton>
 
 

@@ -6,6 +6,8 @@ import Auth from '../Utils/auth';
 import Grid from '@mui/material/Grid'; // puts the login and new user in 2 grids side by side
 import Box from '@mui/material/Box'; // allows spacing at the top of the 2 grids
 import Button from '@mui/material/Button'; // button styling
+import LoginIcon from '@mui/icons-material/Login'; // login icon
+import Typography from '@mui/material/Typography'; // typography styling
 
 
 
@@ -101,11 +103,11 @@ const Login = () => {
   };
 
   return (
-    <Container >
+    <Container>
       <Box sx={{ flexGrow: 1 }} mt={4} />
       <Grid container spacing={2}>
         <Grid item xs={6}>
-          <h1>Login</h1>
+          <Typography variant="h1">Login</Typography>
           <form>
             <input
               type="text"
@@ -121,7 +123,7 @@ const Login = () => {
               onChange={(event) => setPassword(event.target.value)}
             />
             <Box sx={{ flexGrow: 1 }} mt={2} />
-            <Button variant="contained" color="primary" type="button" onClick={handleLogin}  
+            <Button startIcon={<LoginIcon />} variant="contained" color="primary" type="button" onClick={handleLogin}  
             sx={{
               borderRadius: '20px',
               padding: '10px 20px',
@@ -133,7 +135,7 @@ const Login = () => {
         </Grid>
 
         <Grid item xs={6}>
-          <h1>New User</h1>
+          <Typography variant="h1">Sign Up</Typography>
           <form>
             <input
               type="text"

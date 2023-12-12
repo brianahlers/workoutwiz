@@ -4,6 +4,7 @@ import Calendar from 'react-calendar';
 import { useNavigate } from 'react-router-dom';
 import Auth from '../Utils/auth';
 import Box from '@mui/material/Box'; // allows spacing at the top 
+import 'react-calendar/dist/Calendar.css';
 
 
 

@@ -19,36 +19,17 @@ const Nav = () => {
     navigate('/');
   };
   return (
-    // <Container className='Nav'>
-    //   <nav className='nav navbar'>
-    //     <ul className='nav-list'>
-    //       <li className='nav-item'>
-    //         <Link to={'/'}>Login</Link>
-    //       </li>
-    //       <li className='nav-item'>
-    //         <Link to={'/home'}>Home</Link>
-    //       </li>
-    //       <li className='nav-item'>
-    //         <Link to={'/myworkouts'}>My Workouts</Link>
-    //       </li>
-    //       <li className='nav-item'>
-    //         <Link to={'/newworkout'}>New Workout</Link>
-    //       </li>
-    //       <li className='nav-item'>
-    //         <Button onClick={handleLogout}>Logout</Button>
-    //       </li>
-    //     </ul>
-    //   </nav>
-    // </Container>
 
     <AppBar position="static">
+
     <Toolbar>
       {!Auth.loggedIn() && <Button color="inherit" component={RouterLink} to="/">Login</Button>}
       {Auth.loggedIn() && <Button color="inherit" component={RouterLink} to="/home">Home</Button> }
       {Auth.loggedIn() && <Button color="inherit" component={RouterLink} to="/myworkouts">My Workouts</Button> }
-      {Auth.loggedIn() && <Button color="inherit" component={RouterLink} to="/newworkout">New Workout</Button> }
+      {Auth.loggedIn() && <Button color="inherit" component={RouterLink} to="/newworkout">Add Workout</Button> }
       {Auth.loggedIn() && <Button color="inherit" onClick={handleLogout}>Logout</Button> }
     </Toolbar>
+
   </AppBar>
 
   );
