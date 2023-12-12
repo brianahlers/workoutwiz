@@ -68,6 +68,8 @@ button:focus-visible {
   color: #ffffff;
 }
 
+
+
 .react-calendar__tile {
   background-color: #d4cdd3;
 }
@@ -86,6 +88,11 @@ button:focus-visible {
 
 .MuiInputBase-input{
   background-color: #8B909B;
+}
+
+.tileColor {
+  background: #325ab1 !important;
+
 }
 
 @media (prefers-color-scheme: light) {

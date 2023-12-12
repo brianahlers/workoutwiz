@@ -29,7 +29,9 @@ const Home = () => {
         .then(data => {
           // Set the fetched workout data in state
           console.log(data)
-          setWorkouts(data);
+          const workoutDates = data.map(workout => workout.date)
+          console.log(workoutDates)
+          setWorkouts(workoutDates);
         })
         .catch(error => {
           console.error(error);
@@ -45,21 +47,37 @@ const Home = () => {
   };
 
   const handleCalDate = ({date, view}) => {
-    console.log("date", date);
+    // console.log("date", date);
     // console.log("view", view);
     if (view === "month") {
-      console.log(date.toLocaleDateString('zh-Hans-CN'))
-      workouts.forEach(workout => {
-        console.log(workout.date)
-        if (date.toLocaleDateString('zh-Hans-CN') === workout.date) {
-          return "wednesday";
+      // console.log(date.toISOString().split('T')[0])
+      
+        // console.log(workout.date)
+        if (workouts.includes(date.toISOString().split('T')[0]) ) {
+          console.log("match")
+          return "tileColor";
+        } else {
+          return null;
         }
-      })
+     
       // if (date.getDay() === 0 || date.getDay() === 6) {
       //   return "weekend";
       // }
     }
   };
+  const handleCalDate1 = ({date, view}) => {
+    // console.log("date", date);
+    // console.log("view", view);
+    if (view === "month") {
+      // console.log(date.toISOString().split('T')[0])
+      
+      if (date.getDay() === 0 || date.getDay() === 6) {
+        return "tileColor";
+      }
+    }
+  };
+
+
 
   return (
     <Container className="home">
