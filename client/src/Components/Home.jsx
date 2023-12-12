@@ -25,8 +25,8 @@ const Home = () => {
     <Container className="home">
       <Box sx={{ flexGrow: 1 }} mt={4} />
       <h2>Welcome, {username}!</h2>
-      <p>Click on a date to see what you tracked that day!</p>
-      <p>pretend that there are future paid fancy features like graphs and charts here!</p>
+      <p>Click on a day to get started</p>
+      
       <Box sx={{ flexGrow: 1 }} mt={8} />
       <Calendar onClickDay={(e) => handleDateChange(e)} />
     </Container>

@@ -8,13 +8,13 @@ let theme = createTheme({
   
   palette: {
     primary: {
-      main: '#376F6F ',
+      main: '#847B84 ',
     },
     secondary: {
-      main: '#908a99',
+      main: '#373541',
     },
     background: {
-        default: '#A6D6D6',
+        default: '#7B847B',
         },
     
     error: {
@@ -34,9 +34,10 @@ let theme = createTheme({
       // '"Apple Color Emoji"',
       // '"Segoe UI Emoji"',
       // '"Segoe UI Symbol"',
-      'Bebas Neue',
-      'DM Sans',
-      'Varela Round',
+      // 'Bebas Neue',
+      // 'DM Sans',
+      // 'Varela Round',
+      'Public Sans',
     ].join(','),
   },
  

@@ -7,6 +7,8 @@ import { Link as RouterLink } from 'react-router-dom';
 import Auth from '../Utils/auth';
 import { useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Button } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 // import NavbarCollapse from 'react-bootstrap/NavbarCollapse'
 // import Nav from 'react-bootstrap/Nav'
@@ -21,15 +23,17 @@ const Nav = () => {
   return (
 
     <AppBar position="static">
-
+      <Box sx={{ flexGrow: 1 }} mt={2} />
+<Typography variant="h6" component="div" sx={{ flexGrow: 1, margin: 'auto', fontSize: '2.8rem'}}> WorkoutWiz</Typography>
     <Toolbar>
       {!Auth.loggedIn() && <Button color="inherit" component={RouterLink} to="/">Login</Button>}
       {Auth.loggedIn() && <Button color="inherit" component={RouterLink} to="/home">Home</Button> }
       {Auth.loggedIn() && <Button color="inherit" component={RouterLink} to="/myworkouts">My Workouts</Button> }
       {Auth.loggedIn() && <Button color="inherit" component={RouterLink} to="/newworkout">Add Workout</Button> }
+      {Auth.loggedIn() && <Box sx={{ flexGrow: 1 }} />}
       {Auth.loggedIn() && <Button color="inherit" onClick={handleLogout}>Logout</Button> }
     </Toolbar>
-
+    
   </AppBar>
 
   );
