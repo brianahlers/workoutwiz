@@ -24,7 +24,7 @@ const Nav = () => {
   return (
 
     <AppBar position="static">
-<Typography variant="h6" component="div" sx={{margin: 'auto', fontSize: '1rem'}}> <img src={logo} alt="Workout Wiz Logo" width="350" height="250" /> </Typography>
+<Typography variant="h6" component="div" sx={{margin: 'auto', fontSize: '1rem'}}> <img src={logo} alt="Workout Wiz Logo" className="logo" width="350" height="250" /> </Typography>
     <Toolbar>
       {!Auth.loggedIn() && <Button color="inherit" component={RouterLink} to="/">Login</Button>}
       {Auth.loggedIn() && <Button color="inherit" component={RouterLink} to="/home" sx={{ mr: 3 }}>Home</Button> }

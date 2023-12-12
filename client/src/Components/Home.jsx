@@ -27,7 +27,7 @@ const Home = () => {
       <h2>Welcome, {username}!</h2>
       <p>Click on a day to get started</p>
       
-      <Box sx={{ flexGrow: 1 }} mt={8} />
+      <Box sx={{ flexGrow: 1 }} mt={6} />
       <Calendar onClickDay={(e) => handleDateChange(e)} />
     </Container>
   );
