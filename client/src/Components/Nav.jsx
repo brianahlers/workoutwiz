@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import logo from '../assets/workoutwizlogo.png';
 
 // import NavbarCollapse from 'react-bootstrap/NavbarCollapse'
 // import Nav from 'react-bootstrap/Nav'
@@ -23,8 +24,7 @@ const Nav = () => {
   return (
 
     <AppBar position="static">
-      <Box sx={{ flexGrow: 1 }} mt={2} />
-<Typography variant="h6" component="div" sx={{ flexGrow: 1, margin: 'auto', fontSize: '2.8rem'}}> WorkoutWiz</Typography>
+<Typography variant="h6" component="div" sx={{margin: 'auto', fontSize: '1rem'}}> <img src={logo} alt="Workout Wiz Logo" width="350" height="250" /> </Typography>
     <Toolbar>
       {!Auth.loggedIn() && <Button color="inherit" component={RouterLink} to="/">Login</Button>}
       {Auth.loggedIn() && <Button color="inherit" component={RouterLink} to="/home">Home</Button> }

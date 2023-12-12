@@ -200,6 +200,7 @@ const NewWorkout = () => {
         ) : (
           <></>
         )}
+        <Box sx={{ flexGrow: 1 }} mt={10} />
       </div>
     </>
   );

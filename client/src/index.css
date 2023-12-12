@@ -56,8 +56,35 @@ button:focus-visible {
   font-weight: bold;
 }
 
+.react-calendar {
+  width: 100%;
+  max-width: 400px;
+  background: #767C89;
+  border: 1px solid black;
+  font-family: "Bebas Neue";
+  line-height: 1.125em;
+  font-size: 1.2em;
+  color: #ffffff;
+}
+
 .react-calendar__tile {
-  background-color: #DDDCDD;
+  background-color: #d4cdd3;
+}
+
+.MuiCardContent-root {
+  background-color: #8B909B;
+}
+
+.MuiList-root {
+  background-color: #c2c3c5;
+}
+
+.MuiButtonBase-root {
+  background-color: #8B909B;
+}
+
+.MuiInputBase-input{
+  background-color: #8B909B;
 }
 
 @media (prefers-color-scheme: light) {
