@@ -1,7 +1,7 @@
 # 💪 WorkoutWiz 💪
 
 * [GitHub](https://github.com/brianahlers/workoutwiz)
-* Deployed
+* [Deployed](https://workoutwiz-f5a608d8a6a9.herokuapp.com/)
 
 
 ## Description
