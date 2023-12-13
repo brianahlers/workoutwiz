@@ -33,6 +33,22 @@ const Nav = () => {
       {Auth.loggedIn() && <Button color="inherit" component={RouterLink} to="/ask" sx={{ mr: 3 }}>Ask A Certified Personal Trainer</Button> }
       {Auth.loggedIn() && <Box sx={{ flexGrow: 1 }} />}
       {Auth.loggedIn() && <Button color="inherit" onClick={handleLogout}>Logout</Button> } */}
+      {
+        Auth.loggedIn() ? (
+          <>
+            <Button color="inherit" component={RouterLink} to="/home" sx={{ mr: 3 }}>Home</Button>
+            <Button color="inherit" component={RouterLink} to="/myworkouts" sx={{ mr: 3 }}>My Workouts</Button>
+            <Button color="inherit" component={RouterLink} to="/newworkout" sx={{ mr: 3 }}>Add Workout</Button>
+            <Button color="inherit" component={RouterLink} to="/ask" sx={{ mr: 3 }}>Ask A Certified Personal Trainer</Button>
+            <Box sx={{ flexGrow: 1 }} />
+            <Button color="inherit" onClick={handleLogout}>Logout</Button>
+          </>
+        ) : (
+          <>
+            <Button color="inherit" component={RouterLink} to="/">Login</Button>
+          </>
+        )
+      }
     </Toolbar>
     
   </AppBar>
