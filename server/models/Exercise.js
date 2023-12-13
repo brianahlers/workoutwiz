@@ -1,4 +1,4 @@
-const {Schema, model} = require('mongoose');
+const { Schema, model } = require('mongoose');
 const User = require('./User');
 
 
@@ -10,7 +10,7 @@ const exerciseSchema = new Schema(
             trim: true
         },
         date: {
-            type: String, 
+            type: String,
             required: true
         },
         sets: {
@@ -40,17 +40,20 @@ const exerciseSchema = new Schema(
             type: String,
             trim: true
         },
-        user_id: {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        }
+        user_id: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ]
+
     },
     {
         toJSON: {
-          virtuals: true,
+            virtuals: true,
         },
         id: false,
-      }
+    }
 );
 
 const Exercise = model('exercise', exerciseSchema);
