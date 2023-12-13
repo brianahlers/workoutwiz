@@ -1,7 +1,7 @@
 # WorkoutWiz
 
-GitHub: [GitHub](https://github.com/brianahlers/workoutwiz)
-Deployed:
+* [GitHub](https://github.com/brianahlers/workoutwiz)
+* Deployed
 
 
 ## Description
