@@ -29,22 +29,23 @@ const MyWorkouts = () => {
   }
 
   useEffect(() => {
-    console.log("useEffect worked")
-    const user = Auth.getProfile()
-    console.log(user.data._id)
-    // Fetch workout data from the server
-    fetch(`/api/exercises/user/${user.data._id}`)
-      .then(response => response.json())
-      .then(data => {
-        // Set the fetched workout data in state
-        console.log("DATA INSIDE MYWORKOUTS",data)
-        setWorkouts(data);
-        setLoaded(true);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-    // getUser()
+    const getUser = () => {
+      const user = Auth.getProfile()
+      console.log(user.data._id)
+      // Fetch workout data from the server
+      fetch(`/api/exercises/user/${user.data._id}`)
+        .then(response => response.json())
+        .then(data => {
+          // Set the fetched workout data in state
+          console.log("DATA INSIDE MYWORKOUTS",data)
+          setWorkouts(data);
+          setLoaded(true);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+    getUser()
   } );
 
   const handleDeleteExercise = async (exerciseId) => {
