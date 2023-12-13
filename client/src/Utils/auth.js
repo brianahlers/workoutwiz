@@ -29,11 +29,15 @@ class AuthService {
   login(idToken) {
     console.log("ID TOKEN HERE", idToken);
     localStorage.setItem('id_token', idToken);
-    // window.location.assign('/home');
+    localStorage.setItem('loggedIn', true);
+    window.location.assign('/home');
+
   }
 
   logout() {
     localStorage.removeItem('id_token');
+    localStorage.removeItem('loggedIn');
+    window.location.assign('/');
   }
 
   setLoggedInUser(username) {

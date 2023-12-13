@@ -9,7 +9,7 @@ const Logout = () => {
     localStorage.removeItem('id_token');
     localStorage.removeItem('loggedInUser');
     // Redirect to login page
-    history.push('/login');
+    // history.push('/login');
   }, [history]);
 
   return null;

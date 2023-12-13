@@ -21,6 +21,7 @@ const Nav = () => {
     Auth.logout();
     navigate('/');
   };
+  const loggedIn = localStorage.getItem('loggedIn');
   return (
 
     <AppBar position="static">
@@ -34,7 +35,7 @@ const Nav = () => {
       {Auth.loggedIn() && <Box sx={{ flexGrow: 1 }} />}
       {Auth.loggedIn() && <Button color="inherit" onClick={handleLogout}>Logout</Button> } */}
       {
-        Auth.loggedIn() ? (
+        loggedIn ? (
           <>
             <Button color="inherit" component={RouterLink} to="/home" sx={{ mr: 3 }}>Home</Button>
             <Button color="inherit" component={RouterLink} to="/myworkouts" sx={{ mr: 3 }}>My Workouts</Button>
