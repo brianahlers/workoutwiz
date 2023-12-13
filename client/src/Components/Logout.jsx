@@ -6,7 +6,8 @@ const Logout = () => {
 
   useEffect(() => {
     // Clear user data from state or local storage
-    localStorage.removeItem('token');
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('loggedInUser');
     // Redirect to login page
     history.push('/login');
   }, [history]);
