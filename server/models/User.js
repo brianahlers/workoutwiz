@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const exerciseSchema = require('./Exercise');
 
 const userSchema = new Schema({
     username: {
@@ -25,7 +26,7 @@ const userSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Exercise'
         }
-    ]
+    ],
 },
 { //this code is saying to include any virtual properties when json payload is requested
     toJSON: { 
@@ -52,22 +53,11 @@ userSchema.pre('save', async function (next) {
   
 
 
-// //static method to handle signup
-// userSchema.statics.signup = async function (email, password) {
-    
-//     const exists = await this.findOne({ email })
+userSchema.virtual('exerciseCount').get(function () {
+    return this.exercises.length;
+  });
 
-//     if (exists) {
-//         throw Error('Email already in use!')
-//     }
 
-//     const salt = await bcrypt.genSalt(10);
-//     const hash = await bcrypt.hash(password, salt);
-
-//     const user = await this.create({ email, password: hash });
-
-//     return user;
-// };
 
 const User = model('User', userSchema);
 
