@@ -12,7 +12,7 @@ const Ask = () => {
           <div className="form-group">
             <div className="form-row">
               
-              <input type="hidden" name='_next' value='http://localhost:3000/thankyou' />
+              <input type="hidden" name='_next' value='https://workoutwiz-f5a608d8a6a9.herokuapp.com/thankyou' />
               <div className="col">
                 <input type="text" name='name' className="form-control" placeholder='Full Name' required />
               </div>
