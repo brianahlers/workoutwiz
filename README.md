@@ -1,4 +1,4 @@
-# WorkoutWiz
+# 💪 WorkoutWiz 💪
 
 * [GitHub](https://github.com/brianahlers/workoutwiz)
 * Deployed
