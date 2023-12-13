@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getExerciseByDate } from '../Utils/API';
-import { get } from 'mongoose';
 import { Container, Card } from 'react-bootstrap';
 import Auth from '../Utils/auth';
 import Box from '@mui/material/Box';
