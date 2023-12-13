@@ -16,7 +16,7 @@ return (
     <Header />
     <Routes>
       <Route path='/' element={<Login />} />
-      <Route path='/Home' element={<Home />} />
+      <Route path='/home' element={<Home />} />
       <Route path='/myworkouts' element={<MyWorkouts/>} />
       <Route path='/newworkout' element={<NewWorkout />} />
       <Route path='/calendarworkouts/:date' element={<CalendarWorkouts />} />
