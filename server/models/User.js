@@ -26,6 +26,7 @@ const userSchema = new Schema({
 },
 { //this code is saying to include any virtual properties when json payload is requested
     toJSON: { 
+      getters: true,
       virtuals: true,
     },
     // id: false, //this code is saying to not include the id when json payload is requested
