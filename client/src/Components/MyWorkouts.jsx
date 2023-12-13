@@ -8,6 +8,7 @@ import { deleteExercise } from '../Utils/API';
 
 const MyWorkouts = () => {
   const [workouts, setWorkouts] = useState([]);
+  const [loaded, setLoaded] = useState(false);
 
 
   const getUser = () => {
@@ -20,6 +21,7 @@ const MyWorkouts = () => {
         // Set the fetched workout data in state
         console.log(data)
         setWorkouts(data);
+        setLoaded(true);
       })
       .catch(error => {
         console.error(error);
@@ -57,29 +59,33 @@ const MyWorkouts = () => {
       <Box sx={{ flexGrow: 1 }} mt={4} />
       {console.log("workouts here", workouts)}
       {/* Display the workout data */}
-      {workouts.map(workout => (
-        <>
-          <Card key={workout.id} sx={{ maxWidth: 350, margin: 'auto', mt: 2, mb: 2 }}>
+      <>
+        {loaded ? (
+          workouts.map(workout => (
+            <>
+              <Card key={workout.id} sx={{ maxWidth: 350, margin: 'auto', mt: 2, mb: 2 }}>
 
-            <CardContent>
-              <Typography variant='h4' gutterBottom> {workout.title}</Typography>
-              <Typography variant='h6'>Date: {workout.date}</Typography>
-              <Typography variant='h6'>Rep: {workout.reps}</Typography>
-              <Typography variant='h6'>Set: {workout.sets}</Typography>
-              <Typography variant='h6'>Weight: {workout.weight}</Typography>
-              <Box sx={{ flexGrow: 1 }} mt={1} />
-              <Buttton variant='contained' color='primary' onClick={() => handleDeleteExercise(workout._id)}>Delete</Buttton>
+                <CardContent>
+                  <Typography variant='h4' gutterBottom> {workout.title}</Typography>
+                  <Typography variant='h6'>Date: {workout.date}</Typography>
+                  <Typography variant='h6'>Rep: {workout.reps}</Typography>
+                  <Typography variant='h6'>Set: {workout.sets}</Typography>
+                  <Typography variant='h6'>Weight: {workout.weight}</Typography>
+                  <Box sx={{ flexGrow: 1 }} mt={1} />
+                  <Buttton variant='contained' color='primary' onClick={() => handleDeleteExercise(workout._id)}>Delete</Buttton>
+                  {/* Add additional workout details here */}
+                </CardContent>
+              </Card>
+              <Box sx={{ flexGrow: 1 }} mt={2} />
+              <Divider variant='middle' />
+            </>
+          ))
+        ) : (
+          <></>
+        )}
+      </>
 
 
-
-              {/* Add additional workout details here */}
-
-            </CardContent>
-          </Card>
-          <Box sx={{ flexGrow: 1 }} mt={2} />
-          <Divider variant='middle' />
-        </>
-      ))}
     </>
   );
 };
