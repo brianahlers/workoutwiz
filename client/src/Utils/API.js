@@ -28,4 +28,12 @@ export const addExercise = (exerciseData) => {
     });
   };
 
+  export const getExerciseByUser = (userId) => {
+    return fetch(`/api/exercises/user/${userId}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+
 
