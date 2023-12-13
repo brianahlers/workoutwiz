@@ -19,7 +19,7 @@ const MyWorkouts = () => {
       .then(response => response.json())
       .then(data => {
         // Set the fetched workout data in state
-        console.log(data)
+        console.log("DATA INSIDE MYWORKOUTS",data)
         setWorkouts(data);
         setLoaded(true);
       })
@@ -30,7 +30,7 @@ const MyWorkouts = () => {
 
   useEffect(() => {
     getUser()
-  }, []);
+  } );
 
   const handleDeleteExercise = async (exerciseId) => {
     console.log(exerciseId)
