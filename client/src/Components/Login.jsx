@@ -91,9 +91,9 @@ const Login = () => {
       })
       .then(data => {
         // Handle the response from the server
-        console.log(data);
+        console.log("RESPONSE DATA HERE",data);
         Auth.login(data.token)
-        navigate("/home");
+        // navigate("/home");
 
       })
       .catch(error => {
