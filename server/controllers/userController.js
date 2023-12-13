@@ -18,6 +18,7 @@ module.exports = {
     async getUserById(req, res) {
         try {
             const user = await User.findOne({ _id: req.params.userId })
+            .populate('exercises')
                 .select('-__v');
 
             if (!user) {
