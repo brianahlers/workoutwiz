@@ -97,11 +97,12 @@ const NewWorkout = () => {
     } else {
       addExercise(exerciseData)
         .then((response) => {
-          response.json()
+          
           if (response.status === 200) {
             setSuccess(true);
             setSubmitted(true);
           }
+          return response.json()
         })
         .then((data) => {
           // Handle the response from the server
