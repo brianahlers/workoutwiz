@@ -14,7 +14,8 @@ const Home = () => {
   const navigate = useNavigate();
   const username = Auth.getLoggedInUser();
   const userId = Auth.getProfile().data._id;
-  console.log(userId)
+  
+  console.log("USER ID HERE", userId)
 
   const [workouts, setWorkouts] = useState([]);
 
