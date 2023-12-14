@@ -9,7 +9,7 @@ export const getExerciseByDate = (date, user_id) => {
 
 
 export const addExercise = (exerciseData) => {
-    return fetch('/api/exercises', {
+    return fetch('/api/exercises/user', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -118,7 +118,7 @@ const MyWorkouts = () => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
-        const response = await fetch('/api/workouts');
+        const response = await fetch('/api/exercises');
         const data = await response.json();
         setWorkouts(data);
         setLoaded(true);
@@ -132,7 +132,7 @@ const MyWorkouts = () => {
 
   const handleDeleteExercise = async (workoutId) => {
     try {
-      await fetch(`/api/workouts/${workoutId}`, {
+      await fetch(`/api/exercises/${workoutId}`, {
         method: 'DELETE',
       });
       setWorkouts(workouts.filter((workout) => workout.id !== workoutId));

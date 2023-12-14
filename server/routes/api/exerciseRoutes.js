@@ -15,7 +15,7 @@ router.route('/')
 
 .post(createExercise);
 
-// /api/exercises/:userId
+// /api/exercises/user/:userId
 router.route('/user/:userId')
 .get(getAllExercisesByUserId)
 
