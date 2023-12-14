@@ -7,7 +7,7 @@ const homeRoutes = require('./homeRoutes.js');
 router.use('/api', apiRoutes);
 // router.use('/', homeRoutes);
 router.use((req, res) => {
-    res.sendFile(path.join(__dirname, '../../client/build/index.html'));
+    res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
   });
 
 module.exports = router;
