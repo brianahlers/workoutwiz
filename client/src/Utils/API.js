@@ -1,6 +1,6 @@
 // route to get logged in user's info (needs the token)
-export const getExerciseByDate = (date, userId) => {
-    return fetch(`/api/exercises/date/${date}/${userId}`, {
+export const getExerciseByDate = (date, user_id) => {
+    return fetch(`/api/exercises/date/${date}/${user_id}`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -28,8 +28,8 @@ export const addExercise = (exerciseData) => {
     });
   };
 
-  export const getExerciseByUser = (userId) => {
-    return fetch(`/api/exercises/user/${userId}`, {
+  export const getExerciseByUser = (user_id) => {
+    return fetch(`/api/exercises/user/${user_id}`, {
       headers: {
         'Content-Type': 'application/json',
       },
