@@ -19,9 +19,6 @@ const Home = () => {
 
   const [workouts, setWorkouts] = useState([]);
 
-  // const [value, setValue] = useState(new Date());
-  // console.log(value);
-
   useEffect(() => {
     console.log("INSIDE USE EFFECT")
     const getUser = () => {
@@ -50,12 +47,9 @@ const Home = () => {
   };
 
   const handleCalDate = ({date, view}) => {
-    // console.log("date", date);
-    // console.log("view", view);
+
     if (view === "month") {
-      // console.log(date.toISOString().split('T')[0])
-      
-        // console.log(workout.date)
+
         if (workouts.includes(date.toISOString().split('T')[0]) ) {
           console.log("match")
           return "tileColor";
@@ -63,23 +57,8 @@ const Home = () => {
           return null;
         }
      
-      // if (date.getDay() === 0 || date.getDay() === 6) {
-      //   return "weekend";
-      // }
     }
   };
-  const handleCalDate1 = ({date, view}) => {
-    // console.log("date", date);
-    // console.log("view", view);
-    if (view === "month") {
-      // console.log(date.toISOString().split('T')[0])
-      
-      if (date.getDay() === 0 || date.getDay() === 6) {
-        return "tileColor";
-      }
-    }
-  };
-
 
 
   return (

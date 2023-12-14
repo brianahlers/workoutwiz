@@ -8,8 +8,6 @@ const Logout = () => {
     // Clear user data from state or local storage
     localStorage.removeItem('id_token');
     localStorage.removeItem('loggedInUser');
-    // Redirect to login page
-    // history.push('/login');
   }, [history]);
 
   return null;

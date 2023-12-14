@@ -1,8 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const exerciseSchema = require('./Exercise');
-
 const userSchema = new Schema({
     username: {
         type: String,
@@ -21,6 +19,9 @@ const userSchema = new Schema({
         required: true,
         
     },
+    ///the result of doing the "ref: exercise" is that the user model will have an array of exercise ids.
+///and it will make 2 different collections in the database. 1 for users and 1 for exercises.
+///the exercise collection will have an array of user ids that you will have to reference to get the exercises for a user.
     exercise: [{
         type: Schema.Types.ObjectId,
         ref: 'Exercise'
@@ -32,9 +33,9 @@ const userSchema = new Schema({
       getters: true,
       virtuals: true,
     },
-    // id: false, //this code is saying to not include the id when json payload is requested
   }
 );
+
 
 // hash user password
 userSchema.pre('save', async function (next) {
@@ -63,7 +64,3 @@ const User = model('User', userSchema);
 
 module.exports = User; 
 
-
-///the result of doing the "ref: exercise" is that the user model will have an array of exercise ids.
-///and it will make 2 different collections in the database. 1 for users and 1 for exercises.
-///the exercise collection will have an array of user ids that you will have to refernce 

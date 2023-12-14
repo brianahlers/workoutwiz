@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// const { connect, connection } = require('mongoose'); //i saw this line in one of the activities ? 
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/workoutwiz');
 

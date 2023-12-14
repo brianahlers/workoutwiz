@@ -43,7 +43,6 @@ const MyWorkouts = () => {
       </div>
       <Box sx={{ flexGrow: 1 }} mt={4} />
       {console.log("workouts here", workouts)}
-      {/* Display the workout data */}
       <>
         {loaded ? (
           workouts.map((workout) => (
@@ -57,7 +56,7 @@ const MyWorkouts = () => {
                   <Typography variant='h6'>Weight: {workout.weight}</Typography>
                   <Box sx={{ flexGrow: 1 }} mt={1} />
                   <Button variant='contained' color='primary' onClick={() => handleDeleteExercise(workout.id)}>Delete</Button>
-                  {/* Add additional workout details here */}
+                  
                 </CardContent>
               </Card>
               <Box sx={{ flexGrow: 1 }} mt={2} />

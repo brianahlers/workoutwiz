@@ -10,8 +10,6 @@ import LoginIcon from '@mui/icons-material/Login'; // login icon
 import Typography from '@mui/material/Typography'; // typography styling
 
 
-
-
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -93,7 +91,6 @@ const Login = () => {
         // Handle the response from the server
         console.log("RESPONSE DATA HERE",data);
         Auth.login(data.token)
-        // navigate("/home");
 
       })
       .catch(error => {
