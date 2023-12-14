@@ -95,6 +95,10 @@ button:focus-visible {
 
 }
 
+.MuiGrid-root{
+ justify-content: center;
+
+}
 
 
 @media (prefers-color-scheme: light) {
