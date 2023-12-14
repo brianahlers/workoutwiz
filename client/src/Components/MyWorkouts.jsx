@@ -120,6 +120,7 @@ const MyWorkouts = () => {
       try {
         const response = await fetch('/api/exercises');
         const data = await response.json();
+        console.log(data);
         setWorkouts(data);
         setLoaded(true);
       } catch (err) {

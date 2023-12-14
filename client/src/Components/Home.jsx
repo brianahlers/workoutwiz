@@ -23,6 +23,7 @@ const Home = () => {
   // console.log(value);
 
   useEffect(() => {
+    console.log("INSIDE USE EFFECT")
     const getUser = () => {
       // Fetch workout data from the server
       fetch(`/api/exercises/user/${userId}`)
@@ -39,6 +40,7 @@ const Home = () => {
         });
     }
     getUser()
+    console.log("WORKOUTS", workouts)
   }, []);
 
   const handleDateChange = (e) => {
