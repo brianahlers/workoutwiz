@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, Typography, Button, Box, Divider } from '@mui/material';
+import { Card, CardContent, Typography, Box, Divider } from '@mui/material';
 import Auth from '../Utils/auth';
+import { Button } from '@mui/material';
 
 const MyWorkouts = () => {
   const [workouts, setWorkouts] = useState([]);
@@ -55,7 +56,7 @@ const MyWorkouts = () => {
                   <Typography variant='h6'>Set: {workout.sets}</Typography>
                   <Typography variant='h6'>Weight: {workout.weight}</Typography>
                   <Box sx={{ flexGrow: 1 }} mt={1} />
-                  <Button variant='contained' color='primary' onClick={() => handleDeleteExercise(workout.id)}>Delete</Button>
+                  <Button style={{ backgroundColor: 'black' }} variant='contained' color='primary' onClick={() => handleDeleteExercise(workout.id)}>Delete</Button>
                   
                 </CardContent>
               </Card>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../index.css'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import { useNavigate } from "react-router-dom";
@@ -8,6 +9,7 @@ import Box from '@mui/material/Box'; // allows spacing at the top of the 2 grids
 import Button from '@mui/material/Button'; // button styling
 import LoginIcon from '@mui/icons-material/Login'; // login icon
 import Typography from '@mui/material/Typography'; // typography styling
+
 
 
 const Login = () => {
@@ -100,8 +102,8 @@ const Login = () => {
   };
 
   return (
-    <Container>
-      <Box sx={{ flexGrow: 1 }} mt={4} />
+    <div className='background-image'>
+    <Container >
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <Typography variant="h4" >Login</Typography>
@@ -167,6 +169,7 @@ const Login = () => {
         </Grid>
       </Grid>
     </Container>
+    </div>
   );
 };
 

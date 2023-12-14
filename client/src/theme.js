@@ -8,13 +8,13 @@ let theme = createTheme({
   
   palette: {
     primary: {
-      main: '#847B84 ',
+      main: '#708090 ',
     },
     secondary: {
-      main: '#373541',
+      main: '#E6E6FA',
     },
     background: {
-        default: '#7B847B',
+        default: '#E5E8E8',
         },
     
     error: {
