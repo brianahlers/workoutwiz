@@ -14,6 +14,7 @@ async getAllExercises(req, res) {
 },
 //Get all exercises by user id
 async getAllExercisesByUserId(req, res) {
+    console.log(req.params.userId)
     try {
         const exercises = await Exercise.find({ user_id: req.params.userId })
             .select('-__v');
