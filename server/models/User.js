@@ -53,9 +53,9 @@ userSchema.pre('save', async function (next) {
   
 
 
-// userSchema.virtual('exerciseCount').get(function () {
-//     return this.exercises.length;
-//   });
+userSchema.virtual('exerciseCount').get(function () {
+    return this.exercise.length;
+  });
 
 
 
