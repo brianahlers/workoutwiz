@@ -107,7 +107,7 @@ const Login = () => {
       <Box sx={{ flexGrow: 1 }} mt={4} />
       <Grid container spacing={2}>
         <Grid item xs={6}>
-          <Typography variant="h1">Login</Typography>
+          <Typography variant="h4" >Login</Typography>
           <form>
             <input
               type="text"
@@ -134,8 +134,8 @@ const Login = () => {
           </form>
         </Grid>
 
-        <Grid item xs={6}>
-          <Typography variant="h1">Sign Up</Typography>
+        <Grid item sx={6}>
+          <Typography variant="h4">Sign Up</Typography>
           <form>
             <input
               type="text"
