@@ -21,7 +21,10 @@ const userSchema = new Schema({
         required: true,
         
     },
-    exercise: [exerciseSchema],
+    exercise: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Exercise'
+    }],
 
 },
 { //this code is saying to include any virtual properties when json payload is requested
