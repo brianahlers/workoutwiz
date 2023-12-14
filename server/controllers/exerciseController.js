@@ -5,7 +5,7 @@ module.exports = {
     //Get all exercises
 async getAllExercises(req, res) {
     try {
-        const exercises = await Exercise.find({});
+        const exercises = await Exercise.find();
         res.json(exercises);
     } catch (err) {
         res.status(500).json(err);
